@@ -1,0 +1,21 @@
+0.4: New note diagram
+
+Browser sends GET request to https://studies.cs.helsinki.fi/exampleapp/notes -> Server returns HTML document
+Browser sends GET request in order to get CSS file, since HTML code had a link to it -> Server returns CSS file
+Browser sends GET request in order to get JS file, since HTML code had a link to it -> Server returns main JS file
+Browser executes Javascript code and sends GET request to https://studies.cs.helsinki.fi/exampleapp/data.json get notes ->
+Server returns notes data in JSON format
+Browser executes event handler and renders those notes to the page
+
+Now a user wants to create a new note:
+
+User types something in the text field, thus creating a new note ->
+Clicks 'save' button, by that triggers an event handler that makes a POST request to
+https://studies.cs.helsinki.fi/exampleapp/notes with a payload (payload contains the text entered in the text field) ->
+this new note is added to the list of previous notes ->
+server responds with status code 302, which means redirection ->
+page is re-rendered ->
+user can see all notes including the new one.
+
+
+

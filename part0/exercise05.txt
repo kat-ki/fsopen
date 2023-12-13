@@ -1,0 +1,7 @@
+0.5: Single page app diagram
+
+Browser sends GET request to https://studies.cs.helsinki.fi/exampleapp/spa -> Server returns HTML document
+Browser sends GET request to HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css in order to get CSS file -> Server returns main CSS file
+Browser sends GET request to HTTP GET https://studies.cs.helsinki.fi/exampleapp/spa.js -> Server returns spa.js file
+Browser sends GET request to HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json to get data -> Server returns json file with data
+Browser parses and renders the data to the page

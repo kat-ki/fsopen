@@ -1,0 +1,10 @@
+0.6: New note in Single page app diagram
+
+(steps from exercise05)
+
+User creates a new note in SPA:
+
+User types something in the text field, clicks 'save', this triggers POST request
+to https://studies.cs.helsinki.fi/exampleapp/new_note_spa with a new note in the payload (equals to text entered in text field)
+-> Server responds with status code 201 Created, which means request was successful and added to the server. ->
+Browser does not make any other requests but renders only that new piece to the page.
