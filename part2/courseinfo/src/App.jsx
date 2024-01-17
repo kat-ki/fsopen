@@ -46,16 +46,13 @@ const App = () => {
         }
     ]
 
-    const total = courses[0].parts.reduce((sum, part) => {
-        return sum + part.exercises
-    }, 0)
-    const totalNode = courses[1].parts.reduce((sum, part) => {
-        return sum + part.exercises
-    }, 0)
+    const countTotal = courses.map((course) =>
+        course.parts.reduce((sum, part) => sum + part.exercises, 0))
+
 
     return (
         <div>
-            <Course courses={courses} total={total} totalNode={totalNode}/>
+            <Course courses={courses} total={countTotal}/>
         </div>
     )
 }
