@@ -7,7 +7,7 @@ export const Persons = ({filteredPersons}) => {
                     ? <p style={{fontWeight: "bold", color: 'red'}}>Oops, can not find this person</p>
                     : filteredPersons.map((person) => (
                         <p key={person.id}>
-                            {person.name} {person.tel}
+                            {person.name} {person.number}
                         </p>
                     ))}
             </ul>
