@@ -12,7 +12,5 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+  margin: 30px;
 }

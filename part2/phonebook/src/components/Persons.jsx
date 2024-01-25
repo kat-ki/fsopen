@@ -1,5 +1,5 @@
 
-export const Persons = ({filteredPersons}) => {
+export const Persons = ({filteredPersons, removePerson}) => {
     return (
         <div>
             <ul>
@@ -8,6 +8,7 @@ export const Persons = ({filteredPersons}) => {
                     : filteredPersons.map((person) => (
                         <p key={person.id}>
                             {person.name} {person.number}
+                            <button onClick={()=> removePerson(person.id)}>delete</button>
                         </p>
                     ))}
             </ul>
