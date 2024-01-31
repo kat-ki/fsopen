@@ -6,11 +6,11 @@ import services from './services/services.js'
 import Notification from "./components/Notification.jsx";
 
 const App = () => {
-    const [persons, setPersons] = useState([])
-    const [newName, setNewName] = useState('')
-    const [telephone, setTelephone] = useState('')
-    const [searchInput, setSearchInput] = useState('')
-    const [message, setMessage] = useState(null)
+    const [persons, setPersons] = useState([]);
+    const [newName, setNewName] = useState('');
+    const [telephone, setTelephone] = useState('');
+    const [searchInput, setSearchInput] = useState('');
+    const [message, setMessage] = useState(null);
     const [responseStatus, setResponseStatus] = useState(null);
 
     useEffect(() => {
@@ -20,15 +20,15 @@ const App = () => {
                 setPersons(initialList)
             })
     }, []);
-    const handleName = (event) => {
-        setNewName(event.target.value)
+    const onSetName = (event) => {
+        setNewName(event.target.value);
     }
-    const handleTelephone = (event) => {
-        setTelephone(event.target.value)
+    const onSetTelephone = (event) => {
+        setTelephone(event.target.value);
     }
     const onAddPerson = (event) => {
-        event.preventDefault()
-        const foundPerson = persons.find(person => person.name.toLowerCase() === newName.toLowerCase())
+        event.preventDefault();
+        const foundPerson = persons.find(person => person.name.toLowerCase() === newName.toLowerCase());
         if (foundPerson) {
             if (window.confirm(`${newName} already exists in the phonebook. Replace the old number with a new one?`)) {
                 const updatedPerson = {...foundPerson, number: telephone}
@@ -36,21 +36,22 @@ const App = () => {
                 services
                     .updatePerson(foundPerson.id, updatedPerson)
                     .then(returnedPerson => {
-                        setPersons(persons.map(p => p.id !== foundPerson.id ? p : returnedPerson))
+                        setPersons(persons.map(p => p.id !== foundPerson.id ? p : returnedPerson));
                         setNewName('');
-                        setTelephone('')
-                        setMessage(`${newName}'s number has been updated`)
+                        setTelephone('');
+                        setMessage(`${newName}'s number has been updated`);
                         setTimeout(() => {
-                            setMessage(null)
+                            setMessage(null);
                         }, 3000)
-                        setResponseStatus('success')
+                        setResponseStatus('success');
                     })
                     .catch(error => {
-                        setMessage(`${newName} has already been deleted from server`)
+                        setMessage(`${newName} has already been deleted from server`);
+                        setPersons(persons.filter(p => p.id !== foundPerson.id))
                         setTimeout(() => {
-                            setMessage(null)
+                            setMessage(null);
                         }, 3000)
-                        setResponseStatus('failure')
+                        setResponseStatus('failure');
                     })
             }
         } else if (!newName || newName.trim().length === 0) {
@@ -61,40 +62,40 @@ const App = () => {
             services
                 .createPerson(newPerson)
                 .then(returnedPerson => {
-                    setPersons([returnedPerson, ...persons])
+                    setPersons([returnedPerson, ...persons]);
                     setNewName('');
-                    setTelephone('')
-                    setMessage(`Added ${newPerson.name}`)
+                    setTelephone('');
+                    setMessage(`Added ${newPerson.name}`);
                     setTimeout(() => {
-                        setMessage(null)
+                        setMessage(null);
                     }, 3000)
-                    setResponseStatus('success')
+                    setResponseStatus('success');
                 })
         }
     }
 
     const onDeletePerson = (id) => {
-        const personToDelete = persons.find(person => person.id === id)
+        const personToDelete = persons.find(person => person.id === id);
         if (window.confirm(`Delete ${personToDelete.name}?`)) {
             if (personToDelete) {
                 services
                     .deletePerson(personToDelete.id)
                     .then(returnedData => {
-                        setPersons(persons.filter(p => p.id !== returnedData.id))
-                        setMessage(`Deleted ${personToDelete.name}`)
+                        setPersons(persons.filter(p => p.id !== returnedData.id));
+                        setMessage(`Deleted ${personToDelete.name}`);
                         setTimeout(() => {
                             setMessage(null)
                         }, 3000)
-                        setResponseStatus('failure')
+                        setResponseStatus('success')
                     })
                     .catch(error => {
-                        setMessage('Oops, something went wrong')
+                        setMessage(`Oops, something went wrong`);
                     })
             }
         }
     }
     const onSearch = (event) => {
-        setSearchInput(event.target.value)
+        setSearchInput(event.target.value);
     }
     const filteredPersons = persons.filter((person) =>
         person.name.toLowerCase().includes(searchInput.toLowerCase())
@@ -110,9 +111,9 @@ const App = () => {
             <h3>Add new contact</h3>
             <PersonForm addPerson={onAddPerson}
                         newName={newName}
-                        handleName={handleName}
+                        handleName={onSetName}
                         telephone={telephone}
-                        handleTelephone={handleTelephone}
+                        handleTelephone={onSetTelephone}
             />
 
             <h2>Numbers</h2>
