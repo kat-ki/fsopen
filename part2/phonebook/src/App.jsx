@@ -3,12 +3,14 @@ import {Filter} from "./components/Filter.jsx";
 import {PersonForm} from "./components/PersonForm.jsx";
 import {Persons} from "./components/Persons.jsx";
 import services from './services/services.js'
+import Notification from "./components/Notification.jsx";
 
 const App = () => {
     const [persons, setPersons] = useState([])
     const [newName, setNewName] = useState('')
     const [telephone, setTelephone] = useState('')
     const [searchInput, setSearchInput] = useState('')
+    const [message, setMessage] = useState(null)
 
     useEffect(() => {
         services
@@ -23,7 +25,7 @@ const App = () => {
     const handleTelephone = (event) => {
         setTelephone(event.target.value)
     }
-    const addPerson = (event) => {
+    const onAddPerson = (event) => {
         event.preventDefault()
         const foundPerson = persons.find(person => person.name.toLowerCase() === newName.toLowerCase())
         if (foundPerson) {
@@ -36,10 +38,15 @@ const App = () => {
                         setPersons(persons.map(p => p.id !== foundPerson.id ? p : returnedPerson))
                         setNewName('');
                         setTelephone('')
+                        //TODO finish exercises 2.16-2.20
+                        setMessage(`${newName}'s number has been updated`)
+                        setTimeout(() => {
+                            setMessage(null)
+                        }, 3000)
                     })
                     .catch(error => alert('Oops, something went wrong'))
             }
-        } else if (!newName) {
+        } else if (!newName || newName.trim().length === 0) {
             alert('Enter a valid name')
         } else {
             const newPerson = {name: newName, number: telephone};
@@ -50,11 +57,15 @@ const App = () => {
                     setPersons([returnedPerson, ...persons])
                     setNewName('');
                     setTelephone('')
+                    setMessage(`Added ${newPerson.name}`)
+                    setTimeout(() => {
+                        setMessage(null)
+                    }, 3000)
                 })
         }
     }
 
-    const deleteCurrentPerson = (id) => {
+    const onDeleteCurrentPerson = (id) => {
         const personToDelete = persons.find(person => person.id === id)
         if (window.confirm(`Delete ${personToDelete.name}?`)) {
             if (personToDelete) {
@@ -67,7 +78,7 @@ const App = () => {
             }
         }
     }
-    const handleSearch = (event) => {
+    const onSearch = (event) => {
         setSearchInput(event.target.value)
     }
     const filteredPersons = persons.filter((person) =>
@@ -78,10 +89,11 @@ const App = () => {
     return (
         <div>
             <h2>Phonebook</h2>
-            <Filter value={searchInput} handleSearch={handleSearch}/>
+            <Notification message={message}/>
+            <Filter value={searchInput} handleSearch={onSearch}/>
 
             <h3>Add new contact</h3>
-            <PersonForm addPerson={addPerson}
+            <PersonForm addPerson={onAddPerson}
                         newName={newName}
                         handleName={handleName}
                         telephone={telephone}
@@ -90,7 +102,7 @@ const App = () => {
 
             <h2>Numbers</h2>
             <Persons filteredPersons={filteredPersons}
-                     removePerson={deleteCurrentPerson}
+                     removePerson={onDeleteCurrentPerson}
             />
 
         </div>
