@@ -11,6 +11,7 @@ const App = () => {
     const [telephone, setTelephone] = useState('')
     const [searchInput, setSearchInput] = useState('')
     const [message, setMessage] = useState(null)
+    const [responseStatus, setResponseStatus] = useState(null);
 
     useEffect(() => {
         services
@@ -38,13 +39,19 @@ const App = () => {
                         setPersons(persons.map(p => p.id !== foundPerson.id ? p : returnedPerson))
                         setNewName('');
                         setTelephone('')
-                        //TODO finish exercises 2.16-2.20
                         setMessage(`${newName}'s number has been updated`)
                         setTimeout(() => {
                             setMessage(null)
                         }, 3000)
+                        setResponseStatus('success')
                     })
-                    .catch(error => alert('Oops, something went wrong'))
+                    .catch(error => {
+                        setMessage(`${newName} has already been deleted from server`)
+                        setTimeout(() => {
+                            setMessage(null)
+                        }, 3000)
+                        setResponseStatus('failure')
+                    })
             }
         } else if (!newName || newName.trim().length === 0) {
             alert('Enter a valid name')
@@ -61,11 +68,12 @@ const App = () => {
                     setTimeout(() => {
                         setMessage(null)
                     }, 3000)
+                    setResponseStatus('success')
                 })
         }
     }
 
-    const onDeleteCurrentPerson = (id) => {
+    const onDeletePerson = (id) => {
         const personToDelete = persons.find(person => person.id === id)
         if (window.confirm(`Delete ${personToDelete.name}?`)) {
             if (personToDelete) {
@@ -73,8 +81,15 @@ const App = () => {
                     .deletePerson(personToDelete.id)
                     .then(returnedData => {
                         setPersons(persons.filter(p => p.id !== returnedData.id))
+                        setMessage(`Deleted ${personToDelete.name}`)
+                        setTimeout(() => {
+                            setMessage(null)
+                        }, 3000)
+                        setResponseStatus('failure')
                     })
-                    .catch(error => alert('Oops, something went wrong'))
+                    .catch(error => {
+                        setMessage('Oops, something went wrong')
+                    })
             }
         }
     }
@@ -89,7 +104,7 @@ const App = () => {
     return (
         <div>
             <h2>Phonebook</h2>
-            <Notification message={message}/>
+            <Notification message={message} type={responseStatus}/>
             <Filter value={searchInput} handleSearch={onSearch}/>
 
             <h3>Add new contact</h3>
@@ -102,7 +117,7 @@ const App = () => {
 
             <h2>Numbers</h2>
             <Persons filteredPersons={filteredPersons}
-                     removePerson={onDeleteCurrentPerson}
+                     removePerson={onDeletePerson}
             />
 
         </div>

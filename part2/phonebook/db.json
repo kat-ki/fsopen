@@ -21,11 +21,6 @@
       "id": "4"
     },
     {
-      "id": "fb55",
-      "name": "Martin Nuke",
-      "number": "4456"
-    },
-    {
       "id": "9cbc",
       "name": "Alice Duke",
       "number": "34-082-123"
@@ -34,26 +29,6 @@
       "id": "3a72",
       "name": "John Snow",
       "number": "34-82-111"
-    },
-    {
-      "id": "50e9",
-      "name": "Luke Buk",
-      "number": "456"
-    },
-    {
-      "id": "6aaf",
-      "name": "Andrew Smith",
-      "number": "122334"
-    },
-    {
-      "id": "7f04",
-      "name": "Michael Jotc",
-      "number": "345"
-    },
-    {
-      "id": "90a1",
-      "name": "Lika Nuke",
-      "number": "8763"
     }
   ]
 }
