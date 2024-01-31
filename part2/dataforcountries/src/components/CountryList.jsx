@@ -22,7 +22,7 @@ export const CountryList = ({filteredCountries}) => {
                                 </div>
                                 <p>Languages:</p>
 
-                                <img src={c.flags.png} style={{width: '160px', height: '100px'}}/>
+                                <img src={c.flags.png} alt={'flag'} style={{width: '160px', height: '100px'}}/>
                             </div>
                         ))
                         : filteredCountries.map((c) => (
