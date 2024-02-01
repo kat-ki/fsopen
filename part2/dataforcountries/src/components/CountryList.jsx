@@ -21,7 +21,8 @@ export const CountryList = ({filteredCountries, showCountry, onShowCountry}) => 
                             <div key={country.flag} className={'showList'}>
                                 <h3>{country.name.common}</h3>
                                 <button
-                                    onClick={() => onShowCountry(country)}>{showCountry === country ? 'hide' : 'show'}</button>
+                                    onClick={() => onShowCountry(country)}>{showCountry === country ? 'hide' : 'show'}
+                                </button>
                                 {showCountry === country && <Country country={country}/>}
                             </div>
                         ))
