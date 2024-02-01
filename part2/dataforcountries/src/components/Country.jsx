@@ -1,3 +1,5 @@
+import {Weather} from "./Weather.jsx";
+
 export const Country = ({country}) => {
     return (
         <>
@@ -5,7 +7,7 @@ export const Country = ({country}) => {
             <p>Capital: {country.capital}</p>
             <p>Area: {country.area} km²</p>
             <div>
-                <p>Languages:</p>
+                <h4>Languages:</h4>
                 <ul>
                     {Object.entries(country.languages).map(([key, value]) => (
                         <li key={key}>{value}</li>
@@ -13,8 +15,15 @@ export const Country = ({country}) => {
                 </ul>
             </div>
 
-            <img src={country.flags.png} alt={`Flag of ${country.name.common}`} style={{width: '160px', height: '100px'}}/>
+            <div>
+                <img src={country.flags.png}
+                     alt={`Flag of ${country.name.common}`}
+                     style={{width: '160px', height: '100px'}}/>
+            </div>
+            <div>
+                <h4>Weather in {country.capital}</h4>
+                <Weather capital={country.capital}/>
+            </div>
         </>
     )
 }
-
