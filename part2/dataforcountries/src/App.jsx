@@ -6,7 +6,8 @@ import {CountryList} from "./components/CountryList.jsx";
 
 function App() {
     const [countries, setCountries] = useState([]);
-    const [searchQuery, setSearchQuery] = useState('')
+    const [searchQuery, setSearchQuery] = useState('');
+    const [showCountry, setShowCountry] = useState(null);
 
     useEffect(() => {
         services
@@ -25,12 +26,18 @@ function App() {
         : []
     ;
 
+    const onShowCountry = (country) => {
+        setShowCountry(showCountry === country ? null : country)
+    }
+
     return (
-        <>
+        <div className={'container'}>
             <p>Find countries</p>
             <SearchInput value={searchQuery} onSearch={onSearch}/>
-            <CountryList filteredCountries={filteredCountries}/>
-        </>
+            <CountryList filteredCountries={filteredCountries}
+                         showCountry={showCountry}
+                         onShowCountry={onShowCountry}/>
+        </div>
     )
 }
 

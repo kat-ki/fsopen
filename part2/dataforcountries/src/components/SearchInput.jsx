@@ -1,3 +1,4 @@
+import '../index.css'
 export const SearchInput = ({value, onSearch}) => {
     return (
         <div>
