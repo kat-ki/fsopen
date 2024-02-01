@@ -27,7 +27,7 @@ export const Weather = ({capital}) => {
                             />
                             <h5>{weather.weather[0].main}</h5>
                         </div>
-                        <p>Wind speed: {weather.wind.speed} km/h</p>
+                        <p>Wind speed: {weather.wind.speed} m/s</p>
                     </div>
                     : 'Loading ...'
             }
