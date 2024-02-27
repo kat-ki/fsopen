@@ -56,6 +56,8 @@ const App = () => {
             }
         } else if (!newName || newName.trim().length === 0) {
             alert('Enter a valid name')
+        } else if (!telephone || telephone.trim().length === 0) {
+            alert('Enter a valid number')
         } else {
             const newPerson = {name: newName, number: telephone};
 
@@ -117,9 +119,12 @@ const App = () => {
             />
 
             <h2>Numbers</h2>
-            <Persons filteredPersons={filteredPersons}
-                     removePerson={onDeletePerson}
-            />
+
+            {persons.length === 0
+                ? 'Loading...'
+                : <Persons filteredPersons={filteredPersons}
+                           removePerson={onDeletePerson}
+                />}
 
         </div>
     )
