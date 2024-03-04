@@ -73,6 +73,7 @@ const App = () => {
                     }, 3000)
                     setResponseStatus('success');
                 })
+                .catch(error => setMessage(error.response.data.error))
         }
     }
 
@@ -88,7 +89,7 @@ const App = () => {
                         setTimeout(() => {
                             setMessage(null)
                         }, 3000)
-                        setResponseStatus('success')
+                        setResponseStatus('success');
                     })
                     .catch(error => {
                         setMessage(`Oops, something went wrong`);

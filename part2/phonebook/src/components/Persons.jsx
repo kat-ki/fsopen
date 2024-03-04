@@ -1,3 +1,4 @@
+
 export const Persons = ({filteredPersons, removePerson}) => {
     return (
         <div>
