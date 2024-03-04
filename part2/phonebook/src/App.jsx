@@ -73,7 +73,19 @@ const App = () => {
                     }, 3000)
                     setResponseStatus('success');
                 })
-                .catch(error => setMessage(error.response.data.error))
+                .catch(error => {
+                    const response = error.response.data
+                    let errorStart = response.indexOf('<pre>');
+                    let errorEnd = response.indexOf('<br>');
+                    if (errorStart !== -1 && errorEnd !== -1) {
+                        let validationError = response.substring(errorStart + 21, errorEnd);
+                        setMessage(validationError);
+                    }
+                    setTimeout(() => {
+                        setMessage(null);
+                    }, 3000)
+                    setResponseStatus('failed');
+                });
         }
     }
 
@@ -84,8 +96,8 @@ const App = () => {
                 services
                     .deletePerson(personToDelete.id)
                     .then(returnedData => {
-                        setPersons(persons.filter(p => p.id !== returnedData.id));
                         setMessage(`Deleted ${personToDelete.name}`);
+                        setPersons(persons.filter(p => p.id !== returnedData.id));
                         setTimeout(() => {
                             setMessage(null)
                         }, 3000)
