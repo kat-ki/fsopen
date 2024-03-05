@@ -96,8 +96,8 @@ const App = () => {
                 services
                     .deletePerson(personToDelete.id)
                     .then(returnedData => {
-                        setMessage(`Deleted ${personToDelete.name}`);
                         setPersons(persons.filter(p => p.id !== returnedData.id));
+                        setMessage(`Deleted ${personToDelete.name}`);
                         setTimeout(() => {
                             setMessage(null)
                         }, 3000)
