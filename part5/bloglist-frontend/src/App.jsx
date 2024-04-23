@@ -9,6 +9,10 @@ const App = () => {
     const [password, setPassword] = useState('')
     const [user, setUser] = useState(null)
 
+    const [title, setTitle] = useState('');
+    const [author, setAuthor] = useState('');
+    const [url, setUrl] = useState('');
+
     useEffect(() => {
         blogService.getAll().then(blogs =>
             setBlogs(blogs)
@@ -64,18 +68,51 @@ const App = () => {
         window.localStorage.clear()
         setUser(null)
     }
+    const addBlog = async (event) => {
+        event.preventDefault()
+        const newBlog = {title, author, url};
+        const response = await blogService.create(newBlog)
+        setBlogs([response, ...blogs])
+        setTitle('')
+        setAuthor('')
+        setUrl('')
+    }
 
     return (
         <div>
-            <h2>Blogs</h2>
+            <h2 style={{margin: '20px'}}>Blogs</h2>
             {user === null
                 ? loginForm()
                 : <div>
-                    <p><b>{user.name}</b> logged in</p>
+                    <span style={{margin: '10px'}}><b>{user.name}</b> logged in </span>
                     <button onClick={handleLogout}>log out</button>
-                    {blogs.map(blog =>
-                        <Blog key={blog.id} blog={blog}/>
-                    )}
+                    <div style={{margin: '10px'}}>
+                        <h3>Add new blog</h3>
+                        <form onSubmit={addBlog} style={{
+                            marginBottom: '10px',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            width: '30%',
+                            paddingBottom: '10px'
+                        }}>
+                            <label htmlFor="title">Title: </label>
+                            <input type="text" name="title" value={title}
+                                   onChange={({target}) => setTitle(target.value)}/>
+                            <label htmlFor="author">Author: </label>
+                            <input type="text" name="author" value={author}
+                                   onChange={({target}) => setAuthor(target.value)}/>
+                            <label htmlFor="url">URL: </label>
+                            <input type="text" name="url" value={url} onChange={({target}) => setUrl(target.value)}/>
+
+                            <button type="submit" style={{width: '50px', marginTop: '10px', padding: '5px'}}>Create
+                            </button>
+                        </form>
+                    </div>
+                    <div style={{margin: '10px'}}>
+                        {blogs.map(blog =>
+                            <Blog key={blog.id} blog={blog}/>
+                        )}
+                    </div>
                 </div>
             }
         </div>
