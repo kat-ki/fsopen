@@ -3,9 +3,11 @@ import Blog from './components/Blog'
 import blogService from './services/blogs'
 import loginService from './services/login.js'
 import Notification from "./components/Notification.jsx";
+import BlogForm from "./components/BlogForm.jsx";
 
 const App = () => {
     const [blogs, setBlogs] = useState([]);
+
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [user, setUser] = useState(null);
@@ -15,7 +17,9 @@ const App = () => {
     const [url, setUrl] = useState('');
 
     const [message, setMessage] = useState(null);
-    const [status, setStatus] = useState('')
+    const [status, setStatus] = useState('');
+
+    const [formVisible, setFormVisible] = useState(false);
 
     useEffect(() => {
         blogService.getAll().then(blogs =>
@@ -97,6 +101,7 @@ const App = () => {
             setTitle('')
             setAuthor('')
             setUrl('')
+            setFormVisible(false)
         } catch (error) {
             setMessage(error.message)
             setStatus('error')
@@ -105,27 +110,28 @@ const App = () => {
             }, 2000)
         }
     }
-    const createBlogForm = () => (
-        <form onSubmit={addBlog} style={{
-            marginBottom: '10px',
-            display: 'flex',
-            flexDirection: 'column',
-            width: '30%',
-            paddingBottom: '10px'
-        }}>
-            <label htmlFor="title">Title: </label>
-            <input type="text" name="title" value={title}
-                   onChange={({target}) => setTitle(target.value)}/>
-            <label htmlFor="author">Author: </label>
-            <input type="text" name="author" value={author}
-                   onChange={({target}) => setAuthor(target.value)}/>
-            <label htmlFor="url">URL: </label>
-            <input type="text" name="url" value={url} onChange={({target}) => setUrl(target.value)}/>
+    const createBlogForm = () => {
 
-            <button type="submit" style={{width: '50px', marginTop: '10px', padding: '5px'}}>Create
-            </button>
-        </form>
-    )
+        return (
+            <div>
+                <div >
+                    <BlogForm
+                        addNewBlog={addBlog}
+                        title={title}
+                        handleTitleChange={({target}) => setTitle(target.value)}
+                        author={author}
+                        handleAuhorChange={({target}) => setAuthor(target.value)}
+                        url={url}
+                        handleUrlChange={({target}) => setUrl(target.value)}
+                    />
+                    <button onClick={()=> setFormVisible(false)}>cancel</button>
+                </div>
+            </div>
+        )
+    }
+    const toggleFormVisibility = ()=> {
+        setFormVisible(!formVisible)
+    }
 
     return (
         <div>
@@ -137,8 +143,11 @@ const App = () => {
                     <span style={{margin: '10px'}}><b>{user.name}</b> logged in </span>
                     <button onClick={handleLogout}>log out</button>
                     <div style={{margin: '10px'}}>
-                        <h3>Add new blog</h3>
-                        {createBlogForm()}
+                        {formVisible ? (
+                            createBlogForm()
+                        ) : (
+                            <button onClick={toggleFormVisibility}>add blog</button>
+                        )}
                     </div>
                     <div style={{margin: '10px'}}>
                         {blogs.map(blog =>
