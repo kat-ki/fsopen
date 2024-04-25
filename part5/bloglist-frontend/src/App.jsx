@@ -12,10 +12,6 @@ const App = () => {
     const [password, setPassword] = useState('');
     const [user, setUser] = useState(null);
 
-    const [title, setTitle] = useState('');
-    const [author, setAuthor] = useState('');
-    const [url, setUrl] = useState('');
-
     const [message, setMessage] = useState(null);
     const [status, setStatus] = useState('');
 
@@ -78,9 +74,8 @@ const App = () => {
         window.localStorage.clear()
         setUser(null)
     }
-    const addBlog = async (event) => {
-        event.preventDefault();
-        if (!title || !author || !url) {
+    const addBlog = async (blog) => {
+        if (!blog.title || !blog.author || !blog.url) {
             setMessage('Title, author, and url must not be empty')
             setStatus('error')
             setTimeout(() => {
@@ -89,18 +84,15 @@ const App = () => {
             return
         }
 
-        const newBlog = {title, author, url};
         try {
-            const response = await blogService.create(newBlog)
+            const response = await blogService.create(blog)
             setMessage(`Added ${response.title}`)
             setStatus('success')
             setTimeout(() => {
                 setMessage(null)
             }, 2000)
             setBlogs([...blogs, response])
-            setTitle('')
-            setAuthor('')
-            setUrl('')
+
             setFormVisible(false)
         } catch (error) {
             setMessage(error.message)
@@ -114,22 +106,16 @@ const App = () => {
 
         return (
             <div>
-                <div >
+                <div>
                     <BlogForm
-                        addNewBlog={addBlog}
-                        title={title}
-                        handleTitleChange={({target}) => setTitle(target.value)}
-                        author={author}
-                        handleAuhorChange={({target}) => setAuthor(target.value)}
-                        url={url}
-                        handleUrlChange={({target}) => setUrl(target.value)}
+                        createBlog={addBlog}
                     />
-                    <button onClick={()=> setFormVisible(false)}>cancel</button>
+                    <button onClick={() => setFormVisible(false)}>cancel</button>
                 </div>
             </div>
         )
     }
-    const toggleFormVisibility = ()=> {
+    const toggleFormVisibility = () => {
         setFormVisible(!formVisible)
     }
 
