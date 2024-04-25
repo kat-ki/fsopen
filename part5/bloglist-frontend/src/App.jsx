@@ -5,6 +5,35 @@ import loginService from './services/login.js'
 import Notification from "./components/Notification.jsx";
 import BlogForm from "./components/BlogForm.jsx";
 
+const buttonstyles = {
+    backgroundColor: 'lightgreen',
+    color: 'black',
+    padding: '4px 8px',
+    margin: '10px',
+    borderRadius: '5px',
+    boxShadow: '0',
+    borderColor: 'inherit',
+    fontFamily: 'sans-serif',
+    fontSize: '14px',
+    textAlign: 'center',
+    cursor: 'pointer',
+    outline: 'none'
+}
+const buttonWarn = {
+    backgroundColor: 'lightcoral',
+    color: 'black',
+    padding: '4px 8px',
+    margin: '10px',
+    borderRadius: '5px',
+    boxShadow: '0',
+    borderColor: 'inherit',
+    fontFamily: 'sans-serif',
+    fontSize: '14px',
+    textAlign: 'center',
+    cursor: 'pointer',
+    outline: 'none'
+}
+
 const App = () => {
     const [blogs, setBlogs] = useState([]);
 
@@ -110,7 +139,7 @@ const App = () => {
                     <BlogForm
                         createBlog={addBlog}
                     />
-                    <button onClick={() => setFormVisible(false)}>cancel</button>
+                    <button onClick={() => setFormVisible(false)} style={buttonWarn}>cancel</button>
                 </div>
             </div>
         )
@@ -127,12 +156,12 @@ const App = () => {
                 ? loginForm()
                 : <div>
                     <span style={{margin: '10px'}}><b>{user.name}</b> logged in </span>
-                    <button onClick={handleLogout}>log out</button>
+                    <button onClick={handleLogout} style={buttonWarn}>log out</button>
                     <div style={{margin: '10px'}}>
                         {formVisible ? (
                             createBlogForm()
                         ) : (
-                            <button onClick={toggleFormVisibility}>add blog</button>
+                            <button onClick={toggleFormVisibility} style={buttonstyles}>add blog</button>
                         )}
                     </div>
                     <div style={{margin: '10px'}}>
