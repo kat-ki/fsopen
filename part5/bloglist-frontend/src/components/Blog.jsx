@@ -1,7 +1,8 @@
-import {useState} from "react";
+import {useState} from 'react'
+import PropTypes from "prop-types";
 
 const Blog = ({blog, handleLike, deleteBlog, user}) => {
-    const [show, setShow] = useState(true);
+    const [show, setShow] = useState(true)
 
     // styles
     const containerStyles = {
@@ -87,6 +88,13 @@ const Blog = ({blog, handleLike, deleteBlog, user}) => {
             <button onClick={handleShow} style={viewHideButtonStyles}> {show ? 'view' : 'hide'}</button>
         </div>
     )
+}
+
+Blog.propTypes = {
+    blog: PropTypes.object.isRequired,
+    handleLike: PropTypes.func.isRequired,
+    deleteBlog: PropTypes.func.isRequired,
+    user: PropTypes.object.isRequired
 }
 
 export default Blog

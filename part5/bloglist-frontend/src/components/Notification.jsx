@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 const styles = {
     success: {
         color: 'white',
@@ -15,7 +17,7 @@ const styles = {
         width: '70%',
         borderRadius: '5px'
     },
-};
+}
 const Notification = ({message, status}) => {
     if (message === null) {
         return null
@@ -26,4 +28,9 @@ const Notification = ({message, status}) => {
     )
 }
 
-export default Notification;
+Notification.propTypes = {
+    message: PropTypes.string,
+    status: PropTypes.string.isRequired
+}
+
+export default Notification

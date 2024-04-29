@@ -2,8 +2,8 @@ import {useState, useEffect} from 'react'
 import Blog from './components/Blog'
 import blogService from './services/blogs'
 import loginService from './services/login.js'
-import Notification from "./components/Notification.jsx";
-import BlogForm from "./components/BlogForm.jsx";
+import Notification from './components/Notification.jsx'
+import BlogForm from './components/BlogForm.jsx'
 
 const buttonstyles = {
     backgroundColor: 'lightgreen',
@@ -50,16 +50,16 @@ const popularStyles = {
 }
 
 const App = () => {
-    const [blogs, setBlogs] = useState([]);
+    const [blogs, setBlogs] = useState([])
 
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-    const [user, setUser] = useState(null);
+    const [username, setUsername] = useState('')
+    const [password, setPassword] = useState('')
+    const [user, setUser] = useState(null)
 
-    const [message, setMessage] = useState(null);
-    const [status, setStatus] = useState('');
+    const [message, setMessage] = useState(null)
+    const [status, setStatus] = useState('')
 
-    const [formVisible, setFormVisible] = useState(false);
+    const [formVisible, setFormVisible] = useState(false)
 
     useEffect(() => {
         blogService.getAll().then(blogs =>
@@ -73,7 +73,7 @@ const App = () => {
             setUser(user)
             blogService.setToken(user.token)
         }
-    }, []);
+    }, [])
     const handleLogin = async (event) => {
         event.preventDefault()
         try {
@@ -176,20 +176,20 @@ const App = () => {
         }
     }
     const showPopular = () => {
-        const sortedByLikes = [...blogs].sort((a, b) => b.likes - a.likes);
-        setBlogs(sortedByLikes);
+        const sortedByLikes = [...blogs].sort((a, b) => b.likes - a.likes)
+        setBlogs(sortedByLikes)
     }
     const deleteBlog = async (id) => {
         const foundBlog = blogs.find(b => b.id === id)
         if (foundBlog && window.confirm(`Delete ${foundBlog.title} by ${foundBlog.author}?`)) {
             try {
-                await blogService.deleteBlog(foundBlog.id);
-                setBlogs(prevBlogs => prevBlogs.filter(b => b.id !== foundBlog.id));
-                setMessage(`Deleted ${foundBlog.title}`);
+                await blogService.deleteBlog(foundBlog.id)
+                setBlogs(prevBlogs => prevBlogs.filter(b => b.id !== foundBlog.id))
+                setMessage(`Deleted ${foundBlog.title}`)
                 setTimeout(() => {
                     setMessage(null)
                 }, 3000)
-                setStatus('success');
+                setStatus('success')
             } catch (error) {
                 setMessage(error.message)
             }
