@@ -66,6 +66,7 @@ const Blog = ({blog, handleLike}) => {
                             <p>Likes: {blog.likes}</p>
                             <button style={likeButtonStyles} onClick={() => handleLike(blog.id)}>like</button>
                         </div>
+                    <p>{blog.user.name}</p>
                     </div>
             }
             <button onClick={handleShow} style={viewHideButtonStyles}> {show ? 'view' : 'hide'}</button>
