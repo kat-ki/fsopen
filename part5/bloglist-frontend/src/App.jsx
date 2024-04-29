@@ -183,7 +183,7 @@ const App = () => {
         const foundBlog = blogs.find(b => b.id === id)
         if (foundBlog && window.confirm(`Delete ${foundBlog.title} by ${foundBlog.author}?`)) {
             try {
-                const response = await blogService.deleteBlog(foundBlog.id);
+                await blogService.deleteBlog(foundBlog.id);
                 setBlogs(prevBlogs => prevBlogs.filter(b => b.id !== foundBlog.id));
                 setMessage(`Deleted ${foundBlog.title}`);
                 setTimeout(() => {
