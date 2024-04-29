@@ -33,6 +33,21 @@ const buttonWarn = {
     cursor: 'pointer',
     outline: 'none'
 }
+const popularStyles = {
+    backgroundColor: 'lightBlue',
+    width: '30%',
+    color: 'black',
+    padding: '4px 8px',
+    margin: '10px',
+    borderRadius: '5px',
+    boxShadow: '0',
+    borderColor: 'inherit',
+    fontFamily: 'sans-serif',
+    fontSize: '14px',
+    textAlign: 'center',
+    cursor: 'pointer',
+    outline: 'none'
+}
 
 const App = () => {
     const [blogs, setBlogs] = useState([]);
@@ -160,6 +175,10 @@ const App = () => {
             }
         }
     }
+    const showPopular = () => {
+        const sortedByLikes = [...blogs].sort((a, b) => b.likes - a.likes);
+        setBlogs(sortedByLikes);
+    }
 
     return (
         <div>
@@ -177,6 +196,7 @@ const App = () => {
                             <button onClick={toggleFormVisibility} style={buttonstyles}>add blog</button>
                         )}
                     </div>
+                    <h3 style={popularStyles} onClick={showPopular}>Show popular</h3>
                     <div style={{margin: '10px'}}>
                         {blogs.map(blog =>
                             <Blog key={blog.id}
