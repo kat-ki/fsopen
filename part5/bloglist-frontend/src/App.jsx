@@ -179,6 +179,22 @@ const App = () => {
         const sortedByLikes = [...blogs].sort((a, b) => b.likes - a.likes);
         setBlogs(sortedByLikes);
     }
+    const deleteBlog = async (id) => {
+        const foundBlog = blogs.find(b => b.id === id)
+        if (foundBlog && window.confirm(`Delete ${foundBlog.title} by ${foundBlog.author}?`)) {
+            try {
+                const response = await blogService.deleteBlog(foundBlog.id);
+                setBlogs(prevBlogs => prevBlogs.filter(b => b.id !== foundBlog.id));
+                setMessage(`Deleted ${foundBlog.title}`);
+                setTimeout(() => {
+                    setMessage(null)
+                }, 3000)
+                setStatus('success');
+            } catch (error) {
+                setMessage(error.message)
+            }
+        }
+    }
 
     return (
         <div>
@@ -202,6 +218,7 @@ const App = () => {
                             <Blog key={blog.id}
                                   blog={blog}
                                   handleLike={handleLike}
+                                  deleteBlog={deleteBlog}
                             />
                         )}
                     </div>

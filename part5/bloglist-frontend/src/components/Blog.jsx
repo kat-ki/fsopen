@@ -1,6 +1,6 @@
 import {useState} from "react";
 
-const Blog = ({blog, handleLike}) => {
+const Blog = ({blog, handleLike, deleteBlog}) => {
     const [show, setShow] = useState(true);
 
     // styles
@@ -49,6 +49,20 @@ const Blog = ({blog, handleLike}) => {
         cursor: 'pointer',
         outline: 'none'
     }
+    const deleteButtonStyles = {
+        backgroundColor: 'red',
+        color: 'white',
+        padding: '10px 20px',
+        margin: '10px',
+        borderRadius: '5px',
+        boxShadow: '0',
+        borderColor: 'inherit',
+        fontFamily: 'sans-serif',
+        fontSize: '14px',
+        textAlign: 'center',
+        cursor: 'pointer',
+        outline: 'none'
+    }
     // styles end
 
     const handleShow = () => {
@@ -66,7 +80,8 @@ const Blog = ({blog, handleLike}) => {
                             <p>Likes: {blog.likes}</p>
                             <button style={likeButtonStyles} onClick={() => handleLike(blog.id)}>like</button>
                         </div>
-                    <p>{blog.user.name}</p>
+                        <p>{blog.user.name}</p>
+                        <button style={deleteButtonStyles} onClick={() => deleteBlog(blog.id)}>delete</button>
                     </div>
             }
             <button onClick={handleShow} style={viewHideButtonStyles}> {show ? 'view' : 'hide'}</button>
