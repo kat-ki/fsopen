@@ -147,6 +147,20 @@ const App = () => {
     const toggleFormVisibility = () => {
         setFormVisible(!formVisible)
     }
+    const handleLike = async (id) => {
+        const foundBlog = blogs.find(b => b.id === id)
+        if (foundBlog) {
+            const updatedLikes = {...foundBlog, likes: foundBlog.likes + 1}
+            try {
+                const response = await blogService.updateLikes(id, updatedLikes)
+                const updatedBlogs = blogs.map(b => b.id === id ? response : b)
+                setBlogs(updatedBlogs)
+            } catch (error) {
+                setMessage(error.message)
+            }
+        }
+
+    }
 
     return (
         <div>
@@ -166,7 +180,10 @@ const App = () => {
                     </div>
                     <div style={{margin: '10px'}}>
                         {blogs.map(blog =>
-                            <Blog key={blog.id} blog={blog}/>
+                            <Blog key={blog.id}
+                                  blog={blog}
+                                  handleLike={handleLike}
+                            />
                         )}
                     </div>
                 </div>
