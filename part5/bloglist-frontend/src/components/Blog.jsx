@@ -1,6 +1,6 @@
 import {useState} from "react";
 
-const Blog = ({blog, handleLike, deleteBlog}) => {
+const Blog = ({blog, handleLike, deleteBlog, user}) => {
     const [show, setShow] = useState(true);
 
     // styles
@@ -65,9 +65,8 @@ const Blog = ({blog, handleLike, deleteBlog}) => {
     }
     // styles end
 
-    const handleShow = () => {
-        setShow(!show)
-    }
+    const handleShow = () => setShow(!show)
+
     return (
         <div style={containerStyles}>
             {
@@ -81,7 +80,8 @@ const Blog = ({blog, handleLike, deleteBlog}) => {
                             <button style={likeButtonStyles} onClick={() => handleLike(blog.id)}>like</button>
                         </div>
                         <p>{blog.user.name}</p>
-                        <button style={deleteButtonStyles} onClick={() => deleteBlog(blog.id)}>delete</button>
+                        {user.name === blog.user.name &&
+                            <button style={deleteButtonStyles} onClick={() => deleteBlog(blog.id)}>delete</button>}
                     </div>
             }
             <button onClick={handleShow} style={viewHideButtonStyles}> {show ? 'view' : 'hide'}</button>
