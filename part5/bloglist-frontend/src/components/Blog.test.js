@@ -12,7 +12,7 @@ test('renders only title and an author of a blog', () => {
     render(<Blog blog={blog}/>)
 
     const title = screen.getByText('testing title');
-    const author = screen.getByText('super author')
+    const author = screen.getByText('super author');
     const url = screen.getByText('httpTest')
     const likes = screen.getByText('12')
 
