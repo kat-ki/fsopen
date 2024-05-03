@@ -13,7 +13,7 @@ test('renders only title and an author of a blog', () => {
 
     const title = screen.getByText('testing title');
     const author = screen.getByText('super author');
-    const url = screen.getByText('httpTest')
+    const url = screen.getByText('httpTest');
     const likes = screen.getByText('12')
 
     expect(title).toBeDefined()
