@@ -71,7 +71,10 @@ const Blog = ({blog, handleLike, deleteBlog, user}) => {
     return (
         <div style={containerStyles}>
             {
-                show ? <p>{blog.title}</p>
+                show ? <div>
+                        <p className="title"><b>{blog.title}</b></p>
+                        <p>{blog.author}</p>
+                    </div>
                     : <div style={detailedBlogStyles}>
                         <p>Title: <b>{blog.title}</b></p>
                         <p>Author: {blog.author}</p>
