@@ -88,7 +88,7 @@ const Blog = ({blog, handleLike, deleteBlog, user}) => {
                             <button style={deleteButtonStyles} onClick={() => deleteBlog(blog.id)}>delete</button>}
                     </div>
             }
-            <button onClick={handleShow} style={viewHideButtonStyles}> {show ? 'view' : 'hide'}</button>
+            <button onClick={handleShow} style={viewHideButtonStyles}><span className="viewBtn">{show ? 'view' : 'hide'}</span></button>
         </div>
     )
 }

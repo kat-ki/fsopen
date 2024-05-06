@@ -1,5 +1,6 @@
 import {render, screen} from "@testing-library/react";
-import {describe, expect, test} from 'vitest'
+import {describe, expect, test} from 'vitest';
+import userEvent from '@testing-library/user-event'
 import Blog from "../src/components/Blog.jsx";
 
 describe('test', () => {
@@ -21,5 +22,26 @@ describe('test', () => {
         expect(author).toBeDefined()
         expect(url).toBeNull()
         expect(likes).toBeNull()
+    });
+    test('renders url and number of likes when button is clicked', async () => {
+        const blog = {
+            title: 'testing title',
+            author: 'super author',
+            url: 'httpTest',
+            likes: 12
+        }
+        const mockButtonClick = vi.fn()
+
+        render(<Blog blog={blog} handleShow={mockButtonClick}/>)
+
+        const url = screen.queryByText(blog.url);
+        const likes = screen.queryByText(blog.likes)
+
+        const user = userEvent.setup()
+        const button = screen.queryByText('viewBtn');
+        await user.click(button)
+
+        expect(url).toBeDefined()
+        expect(likes).toBeDefined()
     })
 })
