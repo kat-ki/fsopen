@@ -8,6 +8,11 @@ const formStyles = {
     width: '30%',
     paddingBottom: '10px'
 }
+const inputStyles = {
+    marginTop: '6px',
+    fontSize: '12px',
+    fontFamily: 'sans-serif'
+}
 const buttonstyles = {
     backgroundColor: 'lightgreen',
     color: 'black',
@@ -39,23 +44,26 @@ const BlogForm = ({createBlog}) => {
         <div>
             <h4>Add new blog</h4>
             <form onSubmit={addBlog} style={formStyles}>
-                <label htmlFor="title">Title: </label>
                 <input type="text"
                        name="title"
+                       placeholder="title"
+                       style={inputStyles}
                        value={title}
                        onChange={({target}) => setTitle(target.value)}/>
-                <label htmlFor="author">Author: </label>
                 <input type="text"
                        name="author"
+                       placeholder="author"
+                       style={inputStyles}
                        value={author}
                        onChange={({target}) => setAuthor(target.value)}/>
-                <label htmlFor="url">URL: </label>
                 <input type="text"
-                       name="url" value={url}
+                       name="url"
+                       placeholder="url"
+                       style={inputStyles}
+                       value={url}
                        onChange={({target}) => setUrl(target.value)}/>
 
-                <button type="submit" style={buttonstyles}>Create
-                </button>
+                <button type="submit" style={buttonstyles}>Create</button>
             </form>
         </div>
     )
