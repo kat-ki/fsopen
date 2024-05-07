@@ -197,7 +197,7 @@ const App = () => {
     }
 
     return (
-        <div>
+        <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
             <h2 style={{margin: '20px'}}>Blogs</h2>
             <Notification message={message} status={status}/>
             {user === null

@@ -7,13 +7,15 @@ const Blog = ({blog, handleLike, deleteBlog, user}) => {
     // styles
     const containerStyles = {
         paddingTop: 0,
-        paddingLeft: 2,
+        paddingLeft: 12,
         border: 'solid',
         borderColor: 'lightgrey',
         borderWidth: 1,
         marginBottom: 2,
         display: 'flex',
-        justifyContent: 'space-between', alignItems: 'center'
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        width: '70%'
     }
     const detailedBlogStyles = {
         paddingTop: 4,
@@ -66,7 +68,7 @@ const Blog = ({blog, handleLike, deleteBlog, user}) => {
     }
     // styles end
 
-    const handleShow = () => setShow(!show)
+    const handleShow = () => setShow(!show);
 
     return (
         <div style={containerStyles}>
@@ -76,19 +78,26 @@ const Blog = ({blog, handleLike, deleteBlog, user}) => {
                         <p>{blog.author}</p>
                     </div>
                     : <div style={detailedBlogStyles}>
+                        {/*<p>ID: <b>{blog.id}</b></p>*/}
                         <p>Title: <b>{blog.title}</b></p>
                         <p>Author: {blog.author}</p>
                         <p>Address: {blog.url}</p>
                         <div style={likesBoxStyle}>
                             <p>Likes: {blog.likes}</p>
-                            <button style={likeButtonStyles} onClick={() => handleLike(blog.id)}>like</button>
+                            <button style={likeButtonStyles} onClick={() => handleLike(blog.id)}
+                                    className="likeBtn"> Like
+                            </button>
                         </div>
                         <p>{blog.user.name}</p>
                         {user.name === blog.user.name &&
                             <button style={deleteButtonStyles} onClick={() => deleteBlog(blog.id)}>delete</button>}
                     </div>
             }
-            <button onClick={handleShow} style={viewHideButtonStyles}><span className="viewBtn">{show ? 'view' : 'hide'}</span></button>
+            <button onClick={handleShow}
+                    style={viewHideButtonStyles}
+                    className="viewBtn">
+                {show ? 'view' : 'hide'}
+            </button>
         </div>
     )
 }
