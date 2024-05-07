@@ -3,14 +3,15 @@ import {describe, expect, test} from 'vitest';
 import userEvent from '@testing-library/user-event'
 import Blog from "../src/components/Blog.jsx";
 
+const blog = {
+    id: '33',
+    title: 'testing title',
+    author: 'super author',
+    url: 'httpTest',
+    likes: 12,
+}
 describe('<Blog />', () => {
     test('renders only title and an author of a blog', () => {
-        const blog = {
-            title: 'testing title',
-            author: 'super author',
-            url: 'httpTest',
-            likes: 12
-        }
         render(<Blog blog={blog}/>)
 
         const title = screen.getByText(blog.title);
@@ -24,13 +25,6 @@ describe('<Blog />', () => {
         expect(likes).toBeNull()
     });
     test('renders url and number of likes when button is clicked', async () => {
-        const blog = {
-            id: "33",
-            title: 'testing title',
-            author: 'super author',
-            url: 'httpTest',
-            likes: 12
-        }
         const mockViewButton = vi.fn();
         render(<Blog blog={blog} handleShow={mockViewButton}/>)
 
@@ -45,14 +39,7 @@ describe('<Blog />', () => {
         expect(url).toBeDefined()
         expect(likes).toBeDefined()
     })
-    test.only('checks event handler is called twice if like button is clicked twice', async () => {
-        const blog = {
-            id: '33',
-            title: 'testing title',
-            author: 'super author',
-            url: 'httpTest',
-            likes: 12,
-        }
+    test('checks event handler is called twice if like button is clicked twice', async () => {
         const mockViewButtonClick = vi.fn();
         const mockLikeButtonClick = vi.fn();
 
