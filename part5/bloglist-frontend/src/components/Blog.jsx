@@ -7,7 +7,7 @@ const Blog = ({blog, handleLike, deleteBlog, user}) => {
     // styles
     const containerStyles = {
         paddingTop: 0,
-        paddingLeft: 12,
+        paddingLeft: 10,
         border: 'solid',
         borderColor: 'lightgrey',
         borderWidth: 1,
@@ -15,7 +15,7 @@ const Blog = ({blog, handleLike, deleteBlog, user}) => {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        width: '70%'
+        width: '100%'
     }
     const detailedBlogStyles = {
         paddingTop: 4,

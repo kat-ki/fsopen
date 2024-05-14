@@ -1,5 +1,5 @@
 const {test, expect, beforeEach, describe} = require('@playwright/test')
-const {loginWith} = require("./helper");
+const {loginWith, createBlog} = require("./helper");
 
 describe('Bloglist', () => {
     beforeEach(async ({page, request}) => {
@@ -22,12 +22,25 @@ describe('Bloglist', () => {
         test('succeeds with correct credentials', async ({page}) => {
             await loginWith(page, 'tester', 'tester');
             await expect(page.getByText('Tester logged in')).toBeVisible();
-        })
-
+        });
         test('fails with wrong credentials', async ({page}) => {
             await loginWith(page, 'tester', 'wrongPassword');
             await expect(page.getByText('Tester logged in')).not.toBeVisible();
             await expect(page.getByText('Wrong username or password')).toBeVisible();
+        });
+    });
+    describe('When logged in', () => {
+        beforeEach(async ({page}) => {
+            await loginWith(page, 'tester', 'tester');
+        })
+
+        test('a new blog can be created', async ({page}) => {
+            await page.getByRole('button', {name: 'add blog'}).click();
+            await createBlog(page, 'Testing is fun', 'The Supertester', 'https://tester.org');
+            await page.getByRole('button', {name: 'Create'}).click();
+
+            await expect(page.locator('.title')).toContainText('Testing is fun');
+            await expect(page.getByText('Added Testing is fun')).toBeVisible();
         })
     })
 })
