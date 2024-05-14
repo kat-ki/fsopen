@@ -21,7 +21,7 @@ describe('Bloglist', () => {
     describe('Log in', () => {
         test('succeeds with correct credentials', async ({page}) => {
             await loginWith(page, 'tester', 'tester');
-            await expect(page.getByText('Tester logged in')).toBeVisible()
+            await expect(page.getByText('Tester logged in')).toBeVisible();
         })
 
         test('fails with wrong credentials', async ({page}) => {
