@@ -2,7 +2,7 @@ import {useState} from 'react'
 import PropTypes from "prop-types";
 
 const Blog = ({blog, handleLike, deleteBlog, user}) => {
-    const [show, setShow] = useState(true)
+    const [show, setShow] = useState(false);
 
     // styles
     const containerStyles = {
@@ -39,7 +39,7 @@ const Blog = ({blog, handleLike, deleteBlog, user}) => {
         fontFamily: 'sans-serif'
     }
     const viewHideButtonStyles = {
-        backgroundColor: show ? 'lightgreen' : 'lightcoral',
+        backgroundColor: !show ? 'lightgreen' : 'lightcoral',
         color: 'black',
         padding: '10px 20px',
         margin: '10px',
@@ -73,7 +73,7 @@ const Blog = ({blog, handleLike, deleteBlog, user}) => {
     return (
         <div style={containerStyles}>
             {
-                show ? <div>
+                !show ? <div>
                         <p className="title"><b>{blog.title}</b></p>
                         <p>{blog.author}</p>
                     </div>
@@ -82,7 +82,7 @@ const Blog = ({blog, handleLike, deleteBlog, user}) => {
                         <p>Author: {blog.author}</p>
                         <p>Address: {blog.url}</p>
                         <div style={likesBoxStyle}>
-                            <p>Likes: {blog.likes}</p>
+                            <p className="likes">Likes: {blog.likes}</p>
                             <button style={likeButtonStyles} onClick={() => handleLike(blog.id)}
                                     className="likeBtn"> Like
                             </button>
@@ -95,7 +95,7 @@ const Blog = ({blog, handleLike, deleteBlog, user}) => {
             <button onClick={handleShow}
                     style={viewHideButtonStyles}
                     className="viewBtn">
-                {show ? 'view' : 'hide'}
+                {!show ? 'view' : 'hide'}
             </button>
         </div>
     )

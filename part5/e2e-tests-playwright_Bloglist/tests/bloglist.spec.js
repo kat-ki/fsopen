@@ -33,7 +33,6 @@ describe('Bloglist', () => {
         beforeEach(async ({page}) => {
             await loginWith(page, 'tester', 'tester');
         })
-
         test('a new blog can be created', async ({page}) => {
             await page.getByRole('button', {name: 'add blog'}).click();
             await createBlog(page, 'Testing is fun', 'The Supertester', 'https://tester.org');
@@ -41,6 +40,18 @@ describe('Bloglist', () => {
 
             await expect(page.locator('.title')).toContainText('Testing is fun');
             await expect(page.getByText('Added Testing is fun')).toBeVisible();
+        });
+        test.only('a blog can be edited (likes amount)', async ({page}) => {
+            await page.getByRole('button', {name: 'add blog'}).click();
+            await createBlog(page, 'Testing is fun', 'The Supertester', 'https://tester.org');
+            await page.getByRole('button', {name: 'Create'}).click();
+            await page.getByRole('button', {name: 'view'}).click();
+
+            await expect(page.getByText('Likes:')).toBeVisible();
+            await expect(page.locator('.likes')).toContainText('0');
+
+            await page.getByRole('button', {name: 'Like'}).click();
+            await expect(page.locator('.likes')).toContainText('1');
         })
     })
 })
