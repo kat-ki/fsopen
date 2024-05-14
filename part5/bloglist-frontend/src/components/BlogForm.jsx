@@ -5,7 +5,7 @@ const formStyles = {
     marginBottom: '10px',
     display: 'flex',
     flexDirection: 'column',
-    width: '30%',
+    width: '100%',
     paddingBottom: '10px'
 }
 const inputStyles = {
@@ -15,6 +15,7 @@ const inputStyles = {
 }
 const buttonstyles = {
     backgroundColor: 'lightgreen',
+    width: 'auto',
     color: 'black',
     padding: '4px 8px',
     margin: '10px',
