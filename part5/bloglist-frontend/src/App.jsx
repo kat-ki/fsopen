@@ -98,6 +98,7 @@ const App = () => {
                 <input
                     type="text"
                     name="Username"
+                    data-test-id="username"
                     value={username}
                     onChange={({target}) => setUsername(target.value)}
                 />
@@ -107,11 +108,12 @@ const App = () => {
                 <input
                     type="password"
                     name="Password"
+                    data-test-id="password"
                     value={password}
                     onChange={({target}) => setPassword(target.value)}
                 />
             </div>
-            <button type="submit">login</button>
+            <button type="submit">log in</button>
         </form>
     )
     const handleLogout = () => {

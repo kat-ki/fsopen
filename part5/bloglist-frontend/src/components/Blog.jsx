@@ -78,7 +78,6 @@ const Blog = ({blog, handleLike, deleteBlog, user}) => {
                         <p>{blog.author}</p>
                     </div>
                     : <div style={detailedBlogStyles}>
-                        {/*<p>ID: <b>{blog.id}</b></p>*/}
                         <p>Title: <b>{blog.title}</b></p>
                         <p>Author: {blog.author}</p>
                         <p>Address: {blog.url}</p>
