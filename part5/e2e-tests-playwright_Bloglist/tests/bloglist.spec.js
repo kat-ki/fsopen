@@ -32,19 +32,15 @@ describe('Bloglist', () => {
     describe('When logged in', () => {
         beforeEach(async ({page}) => {
             await loginWith(page, 'tester', 'tester');
-        })
-        test('a new blog can be created', async ({page}) => {
             await page.getByRole('button', {name: 'add blog'}).click();
             await createBlog(page, 'Testing is fun', 'The Supertester', 'https://tester.org');
             await page.getByRole('button', {name: 'Create'}).click();
-
+        })
+        test('a new blog can be created', async ({page}) => {
             await expect(page.locator('.title')).toContainText('Testing is fun');
             await expect(page.getByText('Added Testing is fun')).toBeVisible();
         });
-        test.only('a blog can be edited (likes amount)', async ({page}) => {
-            await page.getByRole('button', {name: 'add blog'}).click();
-            await createBlog(page, 'Testing is fun', 'The Supertester', 'https://tester.org');
-            await page.getByRole('button', {name: 'Create'}).click();
+        test('a blog can be edited (likes amount)', async ({page}) => {
             await page.getByRole('button', {name: 'view'}).click();
 
             await expect(page.getByText('Likes:')).toBeVisible();
