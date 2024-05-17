@@ -54,16 +54,30 @@ describe('Bloglist', () => {
             await expect(page.locator('.loggedUser')).toContainText('Tester');
             await expect(page.locator('.blogUserName')).toHaveText('Tester');
             await expect(page.getByRole('button', {name: 'delete'})).toBeVisible();
-        })
+        });
         test('only blog creator can delete the blog', async ({page}) => {
             await page.getByRole('button', {name: 'view'}).click();
             await page.getByRole('button', {name: 'delete'}).click();
-
             page.on('dialog', async (dialog) => {
                 expect(dialog.message()).toEqual('Delete Testing is fun by Tester?');
                 await dialog.accept()
             })
             await expect(page.locator('.title')).not.toBeVisible();
-        })
+        });
+        test('blogs are rearranged by likes', async ({page}) => {
+            await createBlog(page, 'Checking likes', 'Tester', 'https://tester.org');
+            await page.getByText('Show popular').click();
+            const allBlogs = await page.$$('.blog');
+            const likes = await Promise.all(
+                allBlogs.map(async (blog) => {
+                    await page.getByRole('button', {name: 'view'}).click();
+                    return parseInt(await blog.$eval('.likes', el => el.innerText))
+                })
+            )
+            const likesInDescendingOrder = likes.every((value, index) =>
+                index === 0 ? true : value >= likes[index - 1]
+            );
+            expect(likesInDescendingOrder).toBeTruthy();
+        });
     })
 })

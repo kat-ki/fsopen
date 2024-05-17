@@ -69,7 +69,7 @@ const Blog = ({blog, handleLike, deleteBlog, user}) => {
     // styles end
 
     const handleShow = () => setShow(!show);
-    
+
     return (
         <div style={containerStyles}>
             {
@@ -77,7 +77,7 @@ const Blog = ({blog, handleLike, deleteBlog, user}) => {
                         <p className="title"><b>{blog.title}</b></p>
                         <p>{blog.author}</p>
                     </div>
-                    : <div style={detailedBlogStyles}>
+                    : <div style={detailedBlogStyles} className="blog">
                         <p>Title: <b>{blog.title}</b></p>
                         <p>Author: {blog.author}</p>
                         <p>Address: {blog.url}</p>
