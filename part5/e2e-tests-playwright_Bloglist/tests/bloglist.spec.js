@@ -64,7 +64,7 @@ describe('Bloglist', () => {
             })
             await expect(page.locator('.title')).not.toBeVisible();
         });
-        test('blogs are rearranged by likes', async ({page}) => {
+        test('blogs are re-arranged by likes', async ({page}) => {
             await createBlog(page, 'Checking likes', 'Tester', 'https://tester.org');
             await page.getByText('Show popular').click();
             const allBlogs = await page.$$('.blog');
