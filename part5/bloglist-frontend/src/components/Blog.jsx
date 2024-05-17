@@ -69,7 +69,7 @@ const Blog = ({blog, handleLike, deleteBlog, user}) => {
     // styles end
 
     const handleShow = () => setShow(!show);
-
+    
     return (
         <div style={containerStyles}>
             {
@@ -87,9 +87,10 @@ const Blog = ({blog, handleLike, deleteBlog, user}) => {
                                     className="likeBtn"> Like
                             </button>
                         </div>
-                        <p>{blog.user.name}</p>
-                        {user.name === blog.user.name &&
-                            <button style={deleteButtonStyles} onClick={() => deleteBlog(blog.id)}>delete</button>}
+                        <p className="blogUserName">{blog.user.name}</p>
+                        {user.name === blog.user.name ?
+                            <button className="deleteBtn" style={deleteButtonStyles}
+                                    onClick={() => deleteBlog(blog.id)}>delete</button> : null}
                     </div>
             }
             <button onClick={handleShow}

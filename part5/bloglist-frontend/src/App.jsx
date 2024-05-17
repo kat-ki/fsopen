@@ -60,7 +60,6 @@ const App = () => {
     const [status, setStatus] = useState('')
 
     const [formVisible, setFormVisible] = useState(false)
-
     useEffect(() => {
         blogService.getAll().then(blogs =>
             setBlogs(blogs)
@@ -117,8 +116,8 @@ const App = () => {
         </form>
     )
     const handleLogout = () => {
-        window.localStorage.clear()
-        setUser(null)
+        window.localStorage.clear();
+        setUser(null);
     }
     const addBlog = async (blog) => {
         if (!blog.title || !blog.author || !blog.url) {
@@ -138,7 +137,6 @@ const App = () => {
                 setMessage(null)
             }, 2000)
             setBlogs([...blogs, response])
-
             setFormVisible(false)
         } catch (error) {
             setMessage(error.message)
@@ -149,7 +147,6 @@ const App = () => {
         }
     }
     const createBlogForm = () => {
-
         return (
             <div>
                 <div>
@@ -205,7 +202,7 @@ const App = () => {
             {user === null
                 ? loginForm()
                 : <div>
-                    <span style={{margin: '10px'}}><b>{user.name}</b> logged in </span>
+                    <span style={{margin: '10px'}} className="loggedUser"><b>{user.name}</b> logged in </span>
                     <button onClick={handleLogout} style={buttonWarn}>log out</button>
                     <div style={{margin: '10px'}}>
                         {formVisible ? (
