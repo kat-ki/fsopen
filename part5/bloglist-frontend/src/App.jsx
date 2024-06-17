@@ -60,7 +60,6 @@ const App = () => {
     const [status, setStatus] = useState('')
 
     const [formVisible, setFormVisible] = useState(false)
-
     useEffect(() => {
         blogService.getAll().then(blogs =>
             setBlogs(blogs)
@@ -98,6 +97,7 @@ const App = () => {
                 <input
                     type="text"
                     name="Username"
+                    data-testid="username"
                     value={username}
                     onChange={({target}) => setUsername(target.value)}
                 />
@@ -107,16 +107,17 @@ const App = () => {
                 <input
                     type="password"
                     name="Password"
+                    data-testid="password"
                     value={password}
                     onChange={({target}) => setPassword(target.value)}
                 />
             </div>
-            <button type="submit">login</button>
+            <button type="submit">log in</button>
         </form>
     )
     const handleLogout = () => {
-        window.localStorage.clear()
-        setUser(null)
+        window.localStorage.clear();
+        setUser(null);
     }
     const addBlog = async (blog) => {
         if (!blog.title || !blog.author || !blog.url) {
@@ -136,7 +137,6 @@ const App = () => {
                 setMessage(null)
             }, 2000)
             setBlogs([...blogs, response])
-
             setFormVisible(false)
         } catch (error) {
             setMessage(error.message)
@@ -147,7 +147,6 @@ const App = () => {
         }
     }
     const createBlogForm = () => {
-
         return (
             <div>
                 <div>
@@ -197,13 +196,13 @@ const App = () => {
     }
 
     return (
-        <div>
+        <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
             <h2 style={{margin: '20px'}}>Blogs</h2>
             <Notification message={message} status={status}/>
             {user === null
                 ? loginForm()
                 : <div>
-                    <span style={{margin: '10px'}}><b>{user.name}</b> logged in </span>
+                    <span style={{margin: '10px'}} className="loggedUser"><b>{user.name}</b> logged in </span>
                     <button onClick={handleLogout} style={buttonWarn}>log out</button>
                     <div style={{margin: '10px'}}>
                         {formVisible ? (

@@ -2,18 +2,20 @@ import {useState} from 'react'
 import PropTypes from "prop-types";
 
 const Blog = ({blog, handleLike, deleteBlog, user}) => {
-    const [show, setShow] = useState(true)
+    const [show, setShow] = useState(false);
 
     // styles
     const containerStyles = {
         paddingTop: 0,
-        paddingLeft: 2,
+        paddingLeft: 10,
         border: 'solid',
         borderColor: 'lightgrey',
         borderWidth: 1,
         marginBottom: 2,
         display: 'flex',
-        justifyContent: 'space-between', alignItems: 'center'
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        width: '100%'
     }
     const detailedBlogStyles = {
         paddingTop: 4,
@@ -37,7 +39,7 @@ const Blog = ({blog, handleLike, deleteBlog, user}) => {
         fontFamily: 'sans-serif'
     }
     const viewHideButtonStyles = {
-        backgroundColor: show ? 'lightgreen' : 'lightcoral',
+        backgroundColor: !show ? 'lightgreen' : 'lightcoral',
         color: 'black',
         padding: '10px 20px',
         margin: '10px',
@@ -66,26 +68,36 @@ const Blog = ({blog, handleLike, deleteBlog, user}) => {
     }
     // styles end
 
-    const handleShow = () => setShow(!show)
+    const handleShow = () => setShow(!show);
 
     return (
         <div style={containerStyles}>
             {
-                show ? <p>{blog.title}</p>
-                    : <div style={detailedBlogStyles}>
+                !show ? <div>
+                        <p className="title"><b>{blog.title}</b></p>
+                        <p>{blog.author}</p>
+                    </div>
+                    : <div style={detailedBlogStyles} className="blog">
                         <p>Title: <b>{blog.title}</b></p>
                         <p>Author: {blog.author}</p>
                         <p>Address: {blog.url}</p>
                         <div style={likesBoxStyle}>
-                            <p>Likes: {blog.likes}</p>
-                            <button style={likeButtonStyles} onClick={() => handleLike(blog.id)}>like</button>
+                            <p className="likes">Likes: {blog.likes}</p>
+                            <button style={likeButtonStyles} onClick={() => handleLike(blog.id)}
+                                    className="likeBtn"> Like
+                            </button>
                         </div>
-                        <p>{blog.user.name}</p>
-                        {user.name === blog.user.name &&
-                            <button style={deleteButtonStyles} onClick={() => deleteBlog(blog.id)}>delete</button>}
+                        <p className="blogUserName">{blog.user.name}</p>
+                        {user.name === blog.user.name ?
+                            <button className="deleteBtn" style={deleteButtonStyles}
+                                    onClick={() => deleteBlog(blog.id)}>delete</button> : null}
                     </div>
             }
-            <button onClick={handleShow} style={viewHideButtonStyles}> {show ? 'view' : 'hide'}</button>
+            <button onClick={handleShow}
+                    style={viewHideButtonStyles}
+                    className="viewBtn">
+                {!show ? 'view' : 'hide'}
+            </button>
         </div>
     )
 }
