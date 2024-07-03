@@ -1,14 +1,30 @@
 import {useState} from 'react'
-import {Link, Route, Routes} from "react-router-dom";
+import {Link, Route, Routes, useMatch, useParams} from "react-router-dom";
 
-const AnecdoteList = ({anecdotes}) => (
-    <div>
-        <h2>Anecdotes</h2>
-        <ul>
-            {anecdotes.map(anecdote => <li key={anecdote.id}>{anecdote.content}</li>)}
-        </ul>
-    </div>
-)
+const Anecdote = ({anecdote}) => {
+    return (
+        <div>
+            <h3>{anecdote.content}</h3>
+            <p>has {anecdote.votes} votes</p>
+        </div>
+    )
+}
+const AnecdoteList = ({anecdotes}) => {
+    const id = useParams().id;
+    console.log(id)
+    return (
+        <div>
+            <h2>Anecdotes</h2>
+            <ul>
+                {anecdotes?.map(anecdote => <li key={anecdote.id}>
+                    <Link to={`/${anecdote.id}`}>
+                        <p>{anecdote.content}</p>
+                    </Link>
+                </li>)}
+            </ul>
+        </div>
+    )
+}
 
 const About = () => (
     <div>
@@ -93,7 +109,12 @@ const App = () => {
         }
     ])
 
-    const [notification, setNotification] = useState('')
+    const [notification, setNotification] = useState('');
+    const match = useMatch('/:id')
+
+    const anecdote = match
+        ? anecdotes.find(note => note.id === Number(match.params.id))
+        : null
 
     const addNew = (anecdote) => {
         anecdote.id = Math.round(Math.random() * 10000)
@@ -110,7 +131,6 @@ const App = () => {
             ...anecdote,
             votes: anecdote.votes + 1
         }
-
         setAnecdotes(anecdotes.map(a => a.id === id ? voted : a))
     }
 
@@ -124,6 +144,7 @@ const App = () => {
             <h1>Software anecdotes</h1>
             <Routes>
                 <Route path="/" element={<AnecdoteList anecdotes={anecdotes}/>}/>
+                <Route path="/:id" element={<Anecdote anecdote={anecdote}/>}/>
                 <Route path="/create" element={<CreateNew addNew={addNew}/>}/>
                 <Route path="/about" element={<About/>}/>
             </Routes>
