@@ -4,8 +4,8 @@ import {Link, Route, Routes, useMatch, useNavigate, useParams} from "react-route
 const Anecdote = ({anecdote}) => {
     return (
         <div>
-            <h3>{anecdote.content}</h3>
-            <p>has {anecdote.votes} votes</p>
+            <h3>{anecdote?.content}</h3>
+            <p>has {anecdote?.votes} votes</p>
         </div>
     )
 }
