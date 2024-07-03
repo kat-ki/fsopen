@@ -1,5 +1,5 @@
 import {useState} from 'react'
-import {Link, Route, Routes, useMatch, useParams} from "react-router-dom";
+import {Link, Route, Routes, useMatch, useNavigate, useParams} from "react-router-dom";
 
 const Anecdote = ({anecdote}) => {
     return (
@@ -10,8 +10,8 @@ const Anecdote = ({anecdote}) => {
     )
 }
 const AnecdoteList = ({anecdotes}) => {
-    const id = useParams().id;
-    console.log(id)
+    // const id = useParams().id;
+
     return (
         <div>
             <h2>Anecdotes</h2>
@@ -91,6 +91,16 @@ const CreateNew = (props) => {
 
 }
 
+const Notification = ({notification, status}) => {
+    if (notification === null) {
+        return null
+    }
+
+    return (
+        <div style={status === 'success' ? notificationStyles.success : notificationStyles.error}>{notification}</div>
+    )
+}
+
 const App = () => {
     const [anecdotes, setAnecdotes] = useState([
         {
@@ -110,15 +120,22 @@ const App = () => {
     ])
 
     const [notification, setNotification] = useState('');
-    const match = useMatch('/:id')
+    const [status, setStatus] = useState('');
 
+    const match = useMatch('/:id');
     const anecdote = match
         ? anecdotes.find(note => note.id === Number(match.params.id))
         : null
-
+    const navigate = useNavigate();
     const addNew = (anecdote) => {
         anecdote.id = Math.round(Math.random() * 10000)
         setAnecdotes(anecdotes.concat(anecdote))
+        setNotification(`Created ${anecdote.content}`);
+        setStatus('success');
+        setTimeout(() => {
+            setNotification(null);
+        }, 3000);
+        navigate('/');
     }
 
     const anecdoteById = (id) =>
@@ -136,6 +153,8 @@ const App = () => {
 
     return (
         <div>
+            {notification && <Notification notification={notification} status={status}/>}
+
             <div style={menu}>
                 <Link to="/">Anecdotes</Link>
                 <Link to="/create">Create</Link>
@@ -169,4 +188,23 @@ const menu = {
 const footer = {
     width: '100%',
     marginTop: '60px'
+}
+
+const notificationStyles = {
+    success: {
+        color: 'white',
+        backgroundColor: 'green',
+        padding: '10px',
+        margin: '10px 0',
+        width: '70%',
+        borderRadius: '5px'
+    },
+    error: {
+        color: 'white',
+        backgroundColor: 'red',
+        padding: '10px',
+        margin: '10px 0',
+        width: '70%',
+        borderRadius: '5px'
+    },
 }
