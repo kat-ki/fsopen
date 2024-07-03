@@ -5,7 +5,7 @@ const Anecdote = ({anecdote}) => {
     return (
         <div>
             <h3>{anecdote?.content}</h3>
-            <p>has {anecdote?.votes} votes</p>
+            {anecdote && <p>has {anecdote?.votes} votes</p>}
         </div>
     )
 }
