@@ -23,14 +23,13 @@ const useCountry = (name) => {
                 const response = await fetch(`https://studies.cs.helsinki.fi/restcountries/api/name/${name}`);
                 if (response.ok) {
                     const result = await response.json();
-                    console.log(result)
-                    setCountry({ found: true, result });
+                    setCountry({found: true, result});
                 } else {
-                    setCountry({ found: false });
+                    setCountry({found: false});
                 }
             } catch (error) {
                 console.error('Error fetching country data:', error);
-                setCountry({ found: false });
+                setCountry({found: false});
             }
         };
 
@@ -57,10 +56,10 @@ const Country = ({country}) => {
 
     return (
         <div>
-            <h3>{country.data.name} </h3>
-            <div>capital {country.data.capital} </div>
-            <div>population {country.data.population}</div>
-            <img src={country.data.flag} height='100' alt={`flag of ${country.data.name}`}/>
+            <h3>{country.result.name.common} </h3>
+            <div>capital: {country.result.capital[0]} </div>
+            <div>population: {country.result.population}</div>
+            <img src={country.result.flags.png} height='100' alt={`flag of ${country.result.flags.alt}`}/>
         </div>
     )
 }
