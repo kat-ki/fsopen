@@ -16,7 +16,8 @@ const blogsSlice = createSlice({
             return state.map(blog => blog.id !== action.payload.id ? blog : action.payload)
         },
         deleteABlog(state, action) {
-            return state.filter(blog => blog.id !== action.payload.id);
+            console.log('blog to delete', action.payload)
+            return state.filter(blog => blog.id !== action.payload);
         }
     }
 })
@@ -51,8 +52,9 @@ export const updateBlogLikes = (blog) => {
 
 export const removeBlog = (id) => {
     return async dispatch => {
-        const blogToDelete = await blogService.deleteBlog(id);
-        dispatch(deleteABlog(blogToDelete));
+        await blogService.deleteBlog(id);
+        dispatch(deleteABlog(id));
     }
 }
+
 export default blogsSlice.reducer;
