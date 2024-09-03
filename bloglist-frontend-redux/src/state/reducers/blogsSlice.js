@@ -1,5 +1,6 @@
 import {createSlice} from "@reduxjs/toolkit";
 import blogService from './../../services/blogs'
+import {setNotification} from "./notificationSlice.js";
 
 const blogsSlice = createSlice({
     name: 'blogs',
@@ -12,10 +13,10 @@ const blogsSlice = createSlice({
             state.push(action.payload);
         },
         updateBlog(state, action) {
-            state = state.map(blog => blog.id !== action.payload.id ? blog : {...blog, likes: blog.likes + 1})
+            return state.map(blog => blog.id !== action.payload.id ? blog : action.payload)
         },
         deleteABlog(state, action) {
-            state = state.filter(blog => blog.id !== action.payload.id);
+            return state.filter(blog => blog.id !== action.payload.id);
         }
     }
 })
@@ -38,9 +39,13 @@ export const createBlog = (blog) => {
 
 export const updateBlogLikes = (blog) => {
     return async dispatch => {
-        const updatedLikes = {...blog, likes: blog.likes + 1}
-        const updatedBlog = await blogService.updateLikes(updatedLikes);
-        dispatch(updateBlog(updatedBlog));
+        try {
+            const updatedLikes = {...blog, likes: blog.likes + 1};
+            const updatedBlog = await blogService.updateLikes(blog.id, updatedLikes);
+            dispatch(updateBlog(updatedBlog));
+        } catch (error) {
+            dispatch(setNotification(error.message));
+        }
     }
 }
 
