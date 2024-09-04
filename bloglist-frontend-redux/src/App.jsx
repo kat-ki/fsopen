@@ -8,7 +8,7 @@ import BlogForm from './components/BlogForm.jsx'
 import {useDispatch, useSelector} from "react-redux";
 import {setNotification} from "./state/reducers/notificationSlice";
 import {createBlog, initializeBlogs, removeBlog, setBlogs, updateBlogLikes} from "./state/reducers/blogsSlice";
-import {setUser} from "./state/reducers/userSlice.js";
+import {clearUser, setUser} from "./state/reducers/userSlice.js";
 
 const buttonstyles = {
     backgroundColor: 'lightgreen',
@@ -57,14 +57,12 @@ const popularStyles = {
 const App = () => {
     const blogs = useSelector(state => state.blogs);
     const notification = useSelector(state => state.notification);
-    const user = useSelector(state => state.user);
+    const user = useSelector(state => state.user.user);
     const dispatch = useDispatch();
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    // const [user, setUser] = useState(null)
 
-//TODO: set user into a reducer
     const [status, setStatus] = useState('');
 
     const [formVisible, setFormVisible] = useState(false);
@@ -74,31 +72,29 @@ const App = () => {
     }, []);
 
     useEffect(() => {
-        const loggedUser = window.localStorage.getItem('loggedUser')
+        const loggedUser = window.localStorage.getItem('loggedUser');
         if (loggedUser) {
-            const user = JSON.parse(loggedUser)
-           // setUser(user)
-            dispatch(setUser(user))
-            blogService.setToken(user.token)
+            const user = JSON.parse(loggedUser);
+            dispatch(setUser(user));
+            blogService.setToken(user.token);
         }
-    }, []);
+    }, [dispatch]);
 
 
     const handleLogin = async (event) => {
-        event.preventDefault()
+        event.preventDefault();
         try {
-            const user = await loginService.login({username, password})
-            window.localStorage.setItem('loggedUser', JSON.stringify(user))
-            blogService.setToken(user.token)
-            dispatch(setUser(user))
-           // setUser(user)
-            setUsername('')
-            setPassword('')
+            const user = await loginService.login({username, password});
+            window.localStorage.setItem('loggedUser', JSON.stringify(user));
+            blogService.setToken(user.token);
+            dispatch(setUser(user));
+            setUsername('');
+            setPassword('');
         } catch (error) {
             dispatch(setNotification('Wrong username or password'));
-            setStatus('error')
+            setStatus('error');
             setTimeout(() => {
-                dispatch(setNotification(null))
+                dispatch(setNotification(null));
             }, 2000)
         }
     }
@@ -129,33 +125,32 @@ const App = () => {
     )
     const handleLogout = () => {
         window.localStorage.clear();
-        dispatch(setUser(null))
-       //setUser(null);
+        dispatch(clearUser());
     }
     const addBlog = (blog) => {
         if (!blog.title || !blog.author || !blog.url) {
-            dispatch(setNotification('Title, author, and url must not be empty'))
-            setStatus('error')
+            dispatch(setNotification('Title, author, and url must not be empty'));
+            setStatus('error');
             setTimeout(() => {
-                dispatch(setNotification(null))
-            }, 2000)
-            return
+                dispatch(setNotification(null));
+            }, 2000);
+            return;
         }
 
         try {
-            dispatch(createBlog(blog))
-            dispatch(setNotification(`Added ${blog.title}`))
-            setStatus('success')
+            dispatch(createBlog(blog));
+            dispatch(setNotification(`Added ${blog.title}`));
+            setStatus('success');
             setTimeout(() => {
-                dispatch(setNotification(null))
-            }, 2000)
-            setFormVisible(false)
+                dispatch(setNotification(null));
+            }, 2000);
+            setFormVisible(false);
         } catch (error) {
-            dispatch(setNotification(error.message))
-            setStatus('error')
+            dispatch(setNotification(error.message));
+            setStatus('error');
             setTimeout(() => {
-                dispatch(setNotification(null))
-            }, 2000)
+                dispatch(setNotification(null));
+            }, 2000);
         }
     }
     const createBlogForm = () => {
@@ -171,30 +166,30 @@ const App = () => {
         )
     }
     const toggleFormVisibility = () => {
-        setFormVisible(!formVisible)
+        setFormVisible(!formVisible);
     }
     const handleLike = (blog) => {
         try {
-            dispatch(updateBlogLikes(blog))
+            dispatch(updateBlogLikes(blog));
         } catch (error) {
-            dispatch(setNotification(error.message))
+            dispatch(setNotification(error.message));
         }
     }
     const showPopular = () => {
-        const sortedByLikes = [...blogs].sort((a, b) => b.likes - a.likes)
+        const sortedByLikes = [...blogs].sort((a, b) => b.likes - a.likes);
         dispatch(setBlogs(sortedByLikes));
     }
     const deleteBlog = (blog) => {
         if (blog && window.confirm(`Delete ${blog.title} by ${blog.author}?`)) {
             try {
-                dispatch(removeBlog(blog.id))
-                dispatch(setNotification(`Deleted ${blog.title}`))
+                dispatch(removeBlog(blog.id));
+                dispatch(setNotification(`Deleted ${blog.title}`));
                 setTimeout(() => {
-                    dispatch(setNotification(null))
+                    dispatch(setNotification(null));
                 }, 3000)
-                setStatus('success')
+                setStatus('success');
             } catch (error) {
-                dispatch(setNotification(error.message))
+                dispatch(setNotification(error.message));
             }
         }
     }
@@ -207,7 +202,7 @@ const App = () => {
             {user === null
                 ? loginForm()
                 : <div>
-                    <span style={{margin: '10px'}} className="loggedUser"><b>{user.user?.name}</b> logged in </span>
+                    <span style={{margin: '10px'}} className="loggedUser"><b>{user.name}</b> logged in </span>
                     <button onClick={handleLogout} style={buttonWarn}>log out</button>
                     <div style={{margin: '10px'}}>
                         {formVisible ? (
