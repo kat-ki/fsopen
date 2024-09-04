@@ -16,7 +16,6 @@ const blogsSlice = createSlice({
             return state.map(blog => blog.id !== action.payload.id ? blog : action.payload)
         },
         deleteABlog(state, action) {
-            console.log('blog to delete', action.payload)
             return state.filter(blog => blog.id !== action.payload);
         }
     }

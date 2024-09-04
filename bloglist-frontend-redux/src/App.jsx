@@ -8,6 +8,7 @@ import BlogForm from './components/BlogForm.jsx'
 import {useDispatch, useSelector} from "react-redux";
 import {setNotification} from "./state/reducers/notificationSlice";
 import {createBlog, initializeBlogs, removeBlog, setBlogs, updateBlogLikes} from "./state/reducers/blogsSlice";
+import {setUser} from "./state/reducers/userSlice.js";
 
 const buttonstyles = {
     backgroundColor: 'lightgreen',
@@ -56,13 +57,14 @@ const popularStyles = {
 const App = () => {
     const blogs = useSelector(state => state.blogs);
     const notification = useSelector(state => state.notification);
+    const user = useSelector(state => state.user);
     const dispatch = useDispatch();
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const [user, setUser] = useState(null)
+    // const [user, setUser] = useState(null)
 
-
+//TODO: set user into a reducer
     const [status, setStatus] = useState('');
 
     const [formVisible, setFormVisible] = useState(false);
@@ -75,7 +77,8 @@ const App = () => {
         const loggedUser = window.localStorage.getItem('loggedUser')
         if (loggedUser) {
             const user = JSON.parse(loggedUser)
-            setUser(user)
+           // setUser(user)
+            dispatch(setUser(user))
             blogService.setToken(user.token)
         }
     }, []);
@@ -87,7 +90,8 @@ const App = () => {
             const user = await loginService.login({username, password})
             window.localStorage.setItem('loggedUser', JSON.stringify(user))
             blogService.setToken(user.token)
-            setUser(user)
+            dispatch(setUser(user))
+           // setUser(user)
             setUsername('')
             setPassword('')
         } catch (error) {
@@ -125,7 +129,8 @@ const App = () => {
     )
     const handleLogout = () => {
         window.localStorage.clear();
-        setUser(null);
+        dispatch(setUser(null))
+       //setUser(null);
     }
     const addBlog = (blog) => {
         if (!blog.title || !blog.author || !blog.url) {
@@ -202,7 +207,7 @@ const App = () => {
             {user === null
                 ? loginForm()
                 : <div>
-                    <span style={{margin: '10px'}} className="loggedUser"><b>{user.name}</b> logged in </span>
+                    <span style={{margin: '10px'}} className="loggedUser"><b>{user.user?.name}</b> logged in </span>
                     <button onClick={handleLogout} style={buttonWarn}>log out</button>
                     <div style={{margin: '10px'}}>
                         {formVisible ? (
