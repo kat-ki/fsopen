@@ -8,7 +8,8 @@ import BlogForm from './components/BlogForm.jsx'
 import {useDispatch, useSelector} from "react-redux";
 import {setNotification} from "./state/reducers/notificationSlice";
 import {createBlog, initializeBlogs, removeBlog, setBlogs, updateBlogLikes} from "./state/reducers/blogsSlice";
-import {clearUser, setUser} from "./state/reducers/userSlice.js";
+import {clearUser, initializeUser, logout, setUser} from "./state/reducers/userSlice.js";
+import LoginForm from "./components/LoginForm.jsx";
 
 const buttonstyles = {
     backgroundColor: 'lightgreen',
@@ -60,73 +61,17 @@ const App = () => {
     const user = useSelector(state => state.user.user);
     const dispatch = useDispatch();
 
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
 
     const [status, setStatus] = useState('');
 
     const [formVisible, setFormVisible] = useState(false);
 
     useEffect(() => {
-        dispatch(initializeBlogs())
-    }, []);
-
-    useEffect(() => {
-        const loggedUser = window.localStorage.getItem('loggedUser');
-        if (loggedUser) {
-            const user = JSON.parse(loggedUser);
-            dispatch(setUser(user));
-            blogService.setToken(user.token);
-        }
+        dispatch(initializeUser());
+        dispatch(initializeBlogs());
     }, [dispatch]);
 
 
-    const handleLogin = async (event) => {
-        event.preventDefault();
-        try {
-            const user = await loginService.login({username, password});
-            window.localStorage.setItem('loggedUser', JSON.stringify(user));
-            blogService.setToken(user.token);
-            dispatch(setUser(user));
-            setUsername('');
-            setPassword('');
-        } catch (error) {
-            dispatch(setNotification('Wrong username or password'));
-            setStatus('error');
-            setTimeout(() => {
-                dispatch(setNotification(null));
-            }, 2000)
-        }
-    }
-    const loginForm = () => (
-        <form onSubmit={handleLogin}>
-            <div>
-                <span>username </span>
-                <input
-                    type="text"
-                    name="Username"
-                    data-testid="username"
-                    value={username}
-                    onChange={({target}) => setUsername(target.value)}
-                />
-            </div>
-            <div>
-                <span>password </span>
-                <input
-                    type="password"
-                    name="Password"
-                    data-testid="password"
-                    value={password}
-                    onChange={({target}) => setPassword(target.value)}
-                />
-            </div>
-            <button type="submit">log in</button>
-        </form>
-    )
-    const handleLogout = () => {
-        window.localStorage.clear();
-        dispatch(clearUser());
-    }
     const addBlog = (blog) => {
         if (!blog.title || !blog.author || !blog.url) {
             dispatch(setNotification('Title, author, and url must not be empty'));
@@ -197,13 +142,13 @@ const App = () => {
     return (
         <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
             <h2 style={{margin: '20px'}}>Blogs</h2>
-            <h2 style={{margin: '20px'}}>Part 7 test....</h2>
+            <h2 style={{margin: '20px'}}>Part 7 </h2>
             <Notification message={notification} status={status}/>
             {user === null
-                ? loginForm()
+                ? <LoginForm/>
                 : <div>
                     <span style={{margin: '10px'}} className="loggedUser"><b>{user.name}</b> logged in </span>
-                    <button onClick={handleLogout} style={buttonWarn}>log out</button>
+                    <button onClick={() => dispatch(logout())} style={buttonWarn}>log out</button>
                     <div style={{margin: '10px'}}>
                         {formVisible ? (
                             createBlogForm()
