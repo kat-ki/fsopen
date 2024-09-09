@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import loginService from "../services/login.js";
 import blogService from "../services/blogs.js";
-import {setUser} from "../state/reducers/userSlice.js";
+import {setUser} from "../state/reducers/authSlice.js";
 import {setNotification} from "../state/reducers/notificationSlice.js";
 import {useDispatch} from "react-redux";
 import {setStatus} from "../state/reducers/statusSlice.js";

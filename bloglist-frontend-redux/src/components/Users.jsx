@@ -11,6 +11,7 @@ const Users = () => {
         dispatch(initializeAllUsers());
     }, [dispatch]);
 
+
     return (
         <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'center'}}>
             <User/>

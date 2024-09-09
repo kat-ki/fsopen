@@ -7,7 +7,7 @@ import {setStatus} from "../state/reducers/statusSlice.js";
 
 const BlogList = () => {
     const blogs = useSelector(state => state.blogs);
-    const user = useSelector(state => state.user.user);
+    const user = useSelector(state => state.authUser.user);
 
     const dispatch = useDispatch();
     const handleLike = (blog) => {
