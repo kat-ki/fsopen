@@ -4,11 +4,13 @@ import {Provider} from "react-redux";
 import {store} from './state/store'
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import Users from "./components/Users.jsx";
+import Notification from "./components/Notification.jsx";
 
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <App/>
+        element: <App/>,
+        errorElement: <Notification/>
     },
     {
         path: '/users',

@@ -4,6 +4,7 @@ import blogService from "../services/blogs.js";
 import {setUser} from "../state/reducers/userSlice.js";
 import {setNotification} from "../state/reducers/notificationSlice.js";
 import {useDispatch} from "react-redux";
+import {setStatus} from "../state/reducers/statusSlice.js";
 
 const LoginForm = () => {
     const dispatch = useDispatch();
@@ -22,7 +23,7 @@ const LoginForm = () => {
             setPassword('');
         } catch (error) {
             dispatch(setNotification('Wrong username or password'));
-            setStatus('error');
+            dispatch(setStatus('error'));
             setTimeout(() => {
                 dispatch(setNotification(null));
             }, 2000)

@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import {useSelector} from "react-redux";
 
 const styles = {
     success: {
@@ -18,19 +19,18 @@ const styles = {
         borderRadius: '5px'
     },
 }
-const Notification = ({message, status}) => {
-    if (message === null) {
+const Notification = () => {
+    const notification = useSelector(state => state.notification);
+    const status = useSelector(state=> state.status.status);
+
+    if (notification === null) {
         return null;
     }
 
     return (
-        <div style={status === 'success' ? styles.success : styles.error}>{message}</div>
+        <div style={status === 'success' ? styles.success : styles.error}>{notification}</div>
     )
 }
 
-Notification.propTypes = {
-    message: PropTypes.string,
-    status: PropTypes.string.isRequired
-}
 
 export default Notification
