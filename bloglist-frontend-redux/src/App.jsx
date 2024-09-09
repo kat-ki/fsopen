@@ -1,12 +1,10 @@
 import {useEffect} from 'react'
 import React from 'react';
-import Blog from './components/Blog'
 import Notification from './components/Notification.jsx'
 import BlogForm from './components/BlogForm.jsx'
 import {useDispatch, useSelector} from "react-redux";
-import {setNotification} from "./state/reducers/notificationSlice";
-import {initializeBlogs, removeBlog, setBlogs, updateBlogLikes} from "./state/reducers/blogsSlice";
-import {initializeUser, logout, setUser} from "./state/reducers/userSlice.js";
+import {initializeBlogs, setBlogs} from "./state/reducers/blogsSlice";
+import {initializeUser} from "./state/reducers/userSlice.js";
 import LoginForm from "./components/LoginForm.jsx";
 import BlogList from "./components/BlogList.jsx";
 import User from "./components/User.jsx";
