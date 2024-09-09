@@ -8,23 +8,7 @@ import {initializeUser} from "./state/reducers/userSlice.js";
 import LoginForm from "./components/LoginForm.jsx";
 import BlogList from "./components/BlogList.jsx";
 import User from "./components/User.jsx";
-import {initializeAllUsers} from "./state/reducers/usersSlice.js";
-import {Outlet} from "react-router-dom";
 
-const buttonstyles = {
-    backgroundColor: 'lightgreen',
-    color: 'black',
-    padding: '4px 8px',
-    margin: '10px',
-    borderRadius: '5px',
-    boxShadow: '0',
-    borderColor: 'inherit',
-    fontFamily: 'sans-serif',
-    fontSize: '14px',
-    textAlign: 'center',
-    cursor: 'pointer',
-    outline: 'none'
-}
 
 const popularStyles = {
     backgroundColor: 'lightBlue',
