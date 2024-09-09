@@ -1,7 +1,6 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {store} from "../state/store.js";
-import {logout} from "../state/reducers/userSlice.js";
+import {initializeUser, logout} from "../state/reducers/userSlice.js";
 
 const buttonWarn = {
     backgroundColor: 'lightcoral',
@@ -19,9 +18,12 @@ const buttonWarn = {
 }
 
 const User = () => {
-    const user = JSON.parse(window.localStorage.getItem('loggedUser'));
+    const user = useSelector(state => state.user.user);
     const dispatch = useDispatch();
-    // const user = useSelector(state => state.user.user);
+
+    useEffect(() => {
+        dispatch(initializeUser());
+    }, [dispatch]);
 
     return (
         <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-end'}}>

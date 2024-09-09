@@ -50,7 +50,6 @@ const App = () => {
     useEffect(() => {
         dispatch(initializeUser());
         dispatch(initializeBlogs());
-        dispatch(initializeAllUsers());
     }, [dispatch]);
 
 
