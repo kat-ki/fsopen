@@ -8,6 +8,8 @@ import {initializeUser} from "./state/reducers/userSlice.js";
 import LoginForm from "./components/LoginForm.jsx";
 import BlogList from "./components/BlogList.jsx";
 import User from "./components/User.jsx";
+import {initializeAllUsers} from "./state/reducers/usersSlice.js";
+import {Outlet} from "react-router-dom";
 
 const buttonstyles = {
     backgroundColor: 'lightgreen',
@@ -48,6 +50,7 @@ const App = () => {
     useEffect(() => {
         dispatch(initializeUser());
         dispatch(initializeBlogs());
+        dispatch(initializeAllUsers());
     }, [dispatch]);
 
 
