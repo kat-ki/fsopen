@@ -1,4 +1,4 @@
-import { useEffect} from 'react'
+import {useEffect} from 'react'
 import React from 'react';
 import Blog from './components/Blog'
 import Notification from './components/Notification.jsx'
@@ -9,6 +9,7 @@ import {initializeBlogs, removeBlog, setBlogs, updateBlogLikes} from "./state/re
 import {initializeUser, logout, setUser} from "./state/reducers/userSlice.js";
 import LoginForm from "./components/LoginForm.jsx";
 import BlogList from "./components/BlogList.jsx";
+import User from "./components/User.jsx";
 
 const buttonstyles = {
     backgroundColor: 'lightgreen',
@@ -24,20 +25,7 @@ const buttonstyles = {
     cursor: 'pointer',
     outline: 'none'
 }
-const buttonWarn = {
-    backgroundColor: 'lightcoral',
-    color: 'black',
-    padding: '4px 8px',
-    margin: '10px',
-    borderRadius: '5px',
-    boxShadow: '0',
-    borderColor: 'inherit',
-    fontFamily: 'sans-serif',
-    fontSize: '14px',
-    textAlign: 'center',
-    cursor: 'pointer',
-    outline: 'none'
-}
+
 const popularStyles = {
     backgroundColor: 'lightBlue',
     width: '30%',
@@ -55,11 +43,9 @@ const popularStyles = {
 }
 
 const App = () => {
-    const blogs = useSelector(state => state.blogs);
-
     const user = useSelector(state => state.user.user);
+    const blogs = useSelector(state => state.blogs)
     const dispatch = useDispatch();
-
 
     useEffect(() => {
         dispatch(initializeUser());
@@ -76,15 +62,14 @@ const App = () => {
         <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
             <h2 style={{margin: '20px'}}>Blogs</h2>
             <h2 style={{margin: '20px'}}>Part 7 </h2>
-            <Notification />
+            <Notification/>
             {user === null
                 ? <LoginForm/>
                 : <div>
-                    <span style={{margin: '10px'}} className="loggedUser"><b>{user.name}</b> logged in </span>
-                    <button onClick={() => dispatch(logout())} style={buttonWarn}>log out</button>
+                    <User/>
                     <BlogForm/>
                     <h3 style={popularStyles} onClick={showPopular}>Show popular</h3>
-                    <BlogList />
+                    <BlogList/>
                 </div>
             }
         </div>

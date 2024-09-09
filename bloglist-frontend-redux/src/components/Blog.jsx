@@ -1,5 +1,4 @@
 import {useState} from 'react'
-import PropTypes from "prop-types";
 
 const Blog = ({blog, handleLike, deleteBlog, user}) => {
     const [show, setShow] = useState(false);

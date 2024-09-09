@@ -3,7 +3,7 @@ import App from './App'
 import {Provider} from "react-redux";
 import {store} from './state/store'
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
-import Users from "./components/Users.jsx";
+import User from "./components/User.jsx";
 import Notification from "./components/Notification.jsx";
 
 const router = createBrowserRouter([
@@ -14,7 +14,7 @@ const router = createBrowserRouter([
     },
     {
         path: '/users',
-        element: <Users />
+        element: <div />
     }
 ])
 
