@@ -25,6 +25,10 @@ const router = createBrowserRouter([
             {
                 path: '/users',
                 element: <Users/>
+            },
+            {
+                path:'/users/:userId',
+                element: <div>single user</div>
             }
         ]
     }

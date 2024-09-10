@@ -5,7 +5,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {setBlogs} from "./state/reducers/blogsSlice";
 import LoginForm from "./components/LoginForm.jsx";
 import BlogList from "./components/BlogList.jsx";
-import User from "./components/User.jsx";
+import LoggedInUser from "./components/LoggedInUser.jsx";
 
 
 const popularStyles = {
@@ -42,7 +42,6 @@ const App = () => {
             {user === null
                 ? <LoginForm/>
                 : <div>
-                    <User/>
                     <BlogForm/>
                     <h3 style={popularStyles} onClick={showPopular}>Show popular</h3>
                     <BlogList/>

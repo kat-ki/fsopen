@@ -19,7 +19,7 @@ const buttonWarn = {
     outline: 'none'
 }
 
-const User = () => {
+const LoggedInUser = () => {
     const user = useSelector(state => state.authUser.user);
     const dispatch = useDispatch();
 
@@ -31,4 +31,4 @@ const User = () => {
     );
 };
 
-export default User;
+export default LoggedInUser;

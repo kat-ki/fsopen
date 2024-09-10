@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import User from "./User.jsx";
+import LoggedInUser from "./LoggedInUser.jsx";
 import {useDispatch, useSelector} from "react-redux";
 import {initializeAllUsers} from "../state/reducers/usersSlice.js";
 import LoginForm from "./LoginForm.jsx";
@@ -9,7 +9,7 @@ const Users = () => {
     const user = useSelector(state => state.authUser.user);
     const users = useSelector(state => state.users.users);
     const dispatch = useDispatch();
-
+    console.log(users)
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -22,7 +22,6 @@ const Users = () => {
 
     return (
         <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'center'}}>
-            <User/>
             <h3>Users</h3>
 
             <table style={{border: '1px solid black', width: '100%', borderCollapse: 'collapse'}}>
