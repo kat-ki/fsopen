@@ -1,5 +1,4 @@
 import React, {useEffect} from 'react';
-import LoggedInUser from "./LoggedInUser.jsx";
 import {useDispatch, useSelector} from "react-redux";
 import {initializeAllUsers} from "../state/reducers/usersSlice.js";
 import LoginForm from "./LoginForm.jsx";
