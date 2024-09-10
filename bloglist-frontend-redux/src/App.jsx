@@ -5,7 +5,6 @@ import {useDispatch, useSelector} from "react-redux";
 import {setBlogs} from "./state/reducers/blogsSlice";
 import LoginForm from "./components/LoginForm.jsx";
 import BlogList from "./components/BlogList.jsx";
-import LoggedInUser from "./components/LoggedInUser.jsx";
 
 
 const popularStyles = {

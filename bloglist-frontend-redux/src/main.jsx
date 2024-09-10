@@ -8,6 +8,7 @@ import Users from "./components/Users.jsx";
 import Layout from "./components/Layout.jsx";
 import {initializeUser} from "./state/reducers/authSlice.js";
 import {initializeBlogs} from "./state/reducers/blogsSlice.js";
+import User from "./components/User.jsx";
 
 store.dispatch(initializeUser());
 store.dispatch(initializeBlogs());
@@ -27,8 +28,8 @@ const router = createBrowserRouter([
                 element: <Users/>
             },
             {
-                path:'/users/:userId',
-                element: <div>single user</div>
+                path: '/users/:userId',
+                element: <User/>
             }
         ]
     }

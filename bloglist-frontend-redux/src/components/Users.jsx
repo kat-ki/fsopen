@@ -9,7 +9,7 @@ const Users = () => {
     const user = useSelector(state => state.authUser.user);
     const users = useSelector(state => state.users.users);
     const dispatch = useDispatch();
-    console.log(users)
+
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -18,6 +18,10 @@ const Users = () => {
 
     if (!user) {
         return <LoginForm/>
+    }
+
+    const handleViewUser = (id) => {
+        navigate(`/users/${id}`, {target: '_blank'});
     }
 
     return (
@@ -33,9 +37,13 @@ const Users = () => {
                 </thead>
                 <tbody>
                 {users.map((user) => (
-                    <tr key={user.id}>
-                        <td style={{border: '1px solid black', padding: '8px'}}>{user.name}</td>
-                        <td style={{border: '1px solid black', padding: '8px'}}>{user.blogs.length}</td>
+                    <tr key={user.id} onClick={() => handleViewUser(user.id)}>
+                        <td style={{border: '1px solid black', padding: '8px', cursor: 'pointer'}}>{user.name}</td>
+                        <td style={{
+                            border: '1px solid black',
+                            padding: '8px',
+                            cursor: 'pointer'
+                        }}>{user.blogs.length}</td>
                     </tr>
                 ))}
                 </tbody>
