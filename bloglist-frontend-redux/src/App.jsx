@@ -1,10 +1,8 @@
-import {useEffect} from 'react'
 import React from 'react';
 import Notification from './components/Notification.jsx'
 import BlogForm from './components/BlogForm.jsx'
 import {useDispatch, useSelector} from "react-redux";
-import {initializeBlogs, setBlogs} from "./state/reducers/blogsSlice";
-import {initializeUser} from "./state/reducers/authSlice.js";
+import {setBlogs} from "./state/reducers/blogsSlice";
 import LoginForm from "./components/LoginForm.jsx";
 import BlogList from "./components/BlogList.jsx";
 import User from "./components/User.jsx";
@@ -31,12 +29,6 @@ const App = () => {
     const blogs = useSelector(state => state.blogs)
     const dispatch = useDispatch();
 
-    useEffect(() => {
-        dispatch(initializeUser());
-        dispatch(initializeBlogs());
-    }, [dispatch]);
-
-    console.log('user in App:', user);
     const showPopular = () => {
         const sortedByLikes = [...blogs].sort((a, b) => b.likes - a.likes);
         dispatch(setBlogs(sortedByLikes));

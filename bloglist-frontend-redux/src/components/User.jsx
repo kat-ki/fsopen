@@ -1,7 +1,8 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {initializeUser, logout} from "../state/reducers/authSlice.js";
-import {store} from "../state/store.js";
+import {logout} from "../state/reducers/authSlice.js";
+
+
 
 const buttonWarn = {
     backgroundColor: 'lightcoral',
@@ -19,14 +20,9 @@ const buttonWarn = {
 }
 
 const User = () => {
-   const user = useSelector(state => state.authUser.user);
+    const user = useSelector(state => state.authUser.user);
     const dispatch = useDispatch();
 
-    useEffect(() => {
-        dispatch(initializeUser());
-    }, [dispatch]);
-
-    console.log(store.getState().user)
     return (
         <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-end'}}>
             <span style={{margin: '10px'}}><b>{user?.name}</b> logged in </span>

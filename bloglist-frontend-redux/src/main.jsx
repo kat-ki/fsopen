@@ -6,6 +6,11 @@ import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import Notification from "./components/Notification.jsx";
 import Users from "./components/Users.jsx";
 import Layout from "./components/Layout.jsx";
+import {initializeUser} from "./state/reducers/authSlice.js";
+import {initializeBlogs} from "./state/reducers/blogsSlice.js";
+
+store.dispatch(initializeUser());
+store.dispatch(initializeBlogs());
 
 const router = createBrowserRouter([
     {

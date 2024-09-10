@@ -2,15 +2,23 @@ import React, {useEffect} from 'react';
 import User from "./User.jsx";
 import {useDispatch, useSelector} from "react-redux";
 import {initializeAllUsers} from "../state/reducers/usersSlice.js";
+import LoginForm from "./LoginForm.jsx";
+import {useNavigate} from "react-router-dom";
 
 const Users = () => {
+    const user = useSelector(state => state.authUser.user);
     const users = useSelector(state => state.users.users);
     const dispatch = useDispatch();
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         dispatch(initializeAllUsers());
     }, [dispatch]);
 
+    if (!user) {
+        return <LoginForm/>
+    }
 
     return (
         <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'center'}}>
