@@ -1,6 +1,7 @@
 import React from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {logout} from "../state/reducers/authSlice.js";
+import LoginForm from "./LoginForm.jsx";
 
 
 const buttonWarn = {
@@ -21,6 +22,10 @@ const buttonWarn = {
 const LoggedInUser = () => {
     const user = useSelector(state => state.authUser.user);
     const dispatch = useDispatch();
+
+    if (!user) {
+        return <LoginForm/>
+    }
 
     return (
         <div style={{

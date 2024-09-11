@@ -1,21 +1,11 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {useParams} from "react-router-dom";
-import {useDispatch} from "react-redux";
-import {fetchSingleUser} from "../state/reducers/usersSlice.js";
+import {useSelector} from "react-redux";
+import {getUserById} from "../state/reducers/usersSlice.js";
 
 const User = () => {
     const {userId} = useParams();
-    const dispatch = useDispatch();
-    const [user, setUser] = useState(null);
-
-    useEffect(() => {
-        const getUser = async () => {
-            let user = await dispatch(fetchSingleUser(userId));
-            setUser(user);
-        };
-        getUser();
-    }, [dispatch, userId])
-
+    const user = useSelector(state => getUserById(state, userId));
 
     if (!user) {
         return <div>Loading...</div>;

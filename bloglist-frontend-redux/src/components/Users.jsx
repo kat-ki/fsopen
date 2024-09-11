@@ -1,7 +1,6 @@
 import React from 'react';
 import {useSelector} from "react-redux";
 import {setAllUsers} from "../state/reducers/usersSlice.js";
-import LoginForm from "./LoginForm.jsx";
 import {Link} from "react-router-dom";
 
 const Users = () => {
