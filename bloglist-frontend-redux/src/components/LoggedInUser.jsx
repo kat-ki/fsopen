@@ -3,7 +3,6 @@ import {useDispatch, useSelector} from "react-redux";
 import {logout} from "../state/reducers/authSlice.js";
 
 
-
 const buttonWarn = {
     backgroundColor: 'lightcoral',
     color: 'black',
@@ -24,10 +23,15 @@ const LoggedInUser = () => {
     const dispatch = useDispatch();
 
     return (
-        <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-end'}}>
-            <span style={{margin: '10px'}}><b>{user?.name}</b> logged in </span>
+        <div style={{
+            display: 'flex',
+            flexDirection: 'row',
+            alignItems: 'center'
+        }}>
+            <span style={{marginRight: '10px'}}><b>{user?.name}</b> logged in</span>
             <button onClick={() => dispatch(logout())} style={buttonWarn}>log out</button>
         </div>
+
     );
 };
 

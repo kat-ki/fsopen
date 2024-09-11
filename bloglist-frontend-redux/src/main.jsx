@@ -9,9 +9,14 @@ import Layout from "./components/Layout.jsx";
 import {initializeUser} from "./state/reducers/authSlice.js";
 import {initializeBlogs} from "./state/reducers/blogsSlice.js";
 import User from "./components/User.jsx";
+import Blog from "./components/Blog.jsx";
+import BlogList from "./components/BlogList.jsx";
+import {fetchAllUsers} from "./state/reducers/usersSlice.js";
 
 store.dispatch(initializeUser());
 store.dispatch(initializeBlogs());
+store.dispatch(fetchAllUsers());
+
 
 const router = createBrowserRouter([
     {
@@ -30,6 +35,14 @@ const router = createBrowserRouter([
             {
                 path: '/users/:userId',
                 element: <User/>
+            },
+            {
+                path: '/blogs',
+                element: <BlogList/>
+            },
+            {
+                path: '/blogs/:blogId',
+                element: <Blog/>
             }
         ]
     }

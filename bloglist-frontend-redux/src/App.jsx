@@ -34,7 +34,7 @@ const App = () => {
     }
 
     return (
-        <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
+        <main style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
             <h2 style={{margin: '20px'}}>Blogs</h2>
             <h2 style={{margin: '20px'}}>Part 7 </h2>
             <Notification/>
@@ -46,7 +46,7 @@ const App = () => {
                     <BlogList/>
                 </div>
             }
-        </div>
+        </main>
     )
 }
 
