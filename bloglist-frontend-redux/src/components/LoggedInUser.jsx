@@ -23,10 +23,6 @@ const LoggedInUser = () => {
     const user = useSelector(state => state.authUser.user);
     const dispatch = useDispatch();
 
-    if (!user) {
-        return <LoginForm/>
-    }
-
     return (
         <div style={{
             display: 'flex',

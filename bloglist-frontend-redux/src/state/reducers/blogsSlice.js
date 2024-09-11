@@ -2,9 +2,11 @@ import {createSlice} from "@reduxjs/toolkit";
 import blogService from './../../services/blogs'
 import {setNotification} from "./notificationSlice.js";
 
+const initialState = [];
+
 const blogsSlice = createSlice({
     name: 'blogs',
-    initialState: [],
+    initialState,
     reducers: {
         setBlogs(state, action) {
             return action.payload;
@@ -55,5 +57,8 @@ export const removeBlog = (id) => {
         dispatch(deleteABlog(id));
     }
 }
+
+export const selectAllBlogs = (state) => state.blogs;
+export const selectBlogByUser = (state, userId) => state.blogs.find(blog => blog.id === userId);
 
 export default blogsSlice.reducer;

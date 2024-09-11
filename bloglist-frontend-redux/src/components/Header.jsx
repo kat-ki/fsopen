@@ -3,6 +3,7 @@ import {Link} from "react-router-dom";
 import LoggedInUser from "./LoggedInUser.jsx";
 
 const Header = () => {
+
     return (
         <header style={{backgroundColor: '#f8f9fa', padding: '10px 0', margin: 0}}>
             <nav>
@@ -18,10 +19,6 @@ const Header = () => {
                 }}>
                     <li style={{margin: '0 15px'}}>
                         <Link to="/"
-                              style={{textDecoration: 'none', color: '#333', fontWeight: 'bold'}}>Home</Link>
-                    </li>
-                    <li style={{margin: '0 15px'}}>
-                        <Link to="blogs"
                               style={{textDecoration: 'none', color: '#333', fontWeight: 'bold'}}>Blogs</Link>
                     </li>
                     <li style={{margin: '0 15px'}}>
