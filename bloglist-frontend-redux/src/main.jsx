@@ -43,6 +43,9 @@ const router = createBrowserRouter([
             {
                 path: '/blogs/:blogId',
                 element: <Blog/>
+            },
+            {
+                path: '/blogs/:blogId/comments',
             }
         ]
     }

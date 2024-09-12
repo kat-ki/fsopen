@@ -1,6 +1,7 @@
 import React from 'react';
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {Link} from "react-router-dom";
+import {setBlogs} from "../state/reducers/blogsSlice.js";
 
 const containerStyles = {
     paddingTop: 0,
@@ -15,12 +16,33 @@ const containerStyles = {
     alignItems: 'flexStart',
     width: '100%'
 }
+const popularStyles = {
+    backgroundColor: 'lightBlue',
+    width: '30%',
+    color: 'black',
+    padding: '4px 8px',
+    margin: '10px',
+    borderRadius: '5px',
+    boxShadow: '0',
+    borderColor: 'inherit',
+    fontFamily: 'sans-serif',
+    fontSize: '14px',
+    textAlign: 'center',
+    cursor: 'pointer',
+    outline: 'none'
+}
 
 const BlogList = () => {
     const blogs = useSelector(state => state.blogs);
+    const dispatch = useDispatch();
+    const showPopular = () => {
+        const sortedByLikes = [...blogs].sort((a, b) => b.likes - a.likes);
+        dispatch(setBlogs(sortedByLikes));
+    }
 
     return (
         <div style={{margin: '10px'}}>
+            <h3 style={popularStyles} onClick={showPopular}>Show popular</h3>
             {blogs.map(blog =>
                 <Link key={blog.id} to={`/blogs/${blog.id}`} style={{textDecoration: 'none', color: 'inherit'}}>
                     <div style={containerStyles}>

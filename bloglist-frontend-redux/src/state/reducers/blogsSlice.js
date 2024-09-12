@@ -61,6 +61,5 @@ export const removeBlog = (id) => {
 };
 
 export const selectAllBlogs = (state) => state.blogs;
-export const selectBlogByUser = (state, userId) => state.blogs.find(blog => blog.id === userId);
 
 export default blogsSlice.reducer;

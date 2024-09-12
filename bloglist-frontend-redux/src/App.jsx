@@ -1,37 +1,13 @@
 import React from 'react';
 import Notification from './components/Notification.jsx'
 import BlogForm from './components/BlogForm.jsx'
-import {useDispatch, useSelector} from "react-redux";
-import {setBlogs} from "./state/reducers/blogsSlice";
+import {useSelector} from "react-redux";
 import LoginForm from "./components/LoginForm.jsx";
 import BlogList from "./components/BlogList.jsx";
 
 
-const popularStyles = {
-    backgroundColor: 'lightBlue',
-    width: '30%',
-    color: 'black',
-    padding: '4px 8px',
-    margin: '10px',
-    borderRadius: '5px',
-    boxShadow: '0',
-    borderColor: 'inherit',
-    fontFamily: 'sans-serif',
-    fontSize: '14px',
-    textAlign: 'center',
-    cursor: 'pointer',
-    outline: 'none'
-}
-
 const App = () => {
     const user = useSelector(state => state.authUser.user);
-    const blogs = useSelector(state => state.blogs)
-    const dispatch = useDispatch();
-
-    const showPopular = () => {
-        const sortedByLikes = [...blogs].sort((a, b) => b.likes - a.likes);
-        dispatch(setBlogs(sortedByLikes));
-    }
 
     return (
         <main style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
@@ -42,7 +18,6 @@ const App = () => {
                 ? <LoginForm/>
                 : <div>
                     <BlogForm/>
-                    <h3 style={popularStyles} onClick={showPopular}>Show popular</h3>
                     <BlogList/>
                 </div>
             }
