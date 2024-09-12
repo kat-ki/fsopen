@@ -25,7 +25,8 @@ const Users = () => {
                             padding: '8px',
                             cursor: 'pointer'
                         }}>
-                            <Link to={`/users/${user.id}`}>{user.name}</Link>
+                            <Link to={`/users/${user.id}`}
+                                  style={{textDecoration: 'none', color: 'inherit'}}>{user.name}</Link>
                         </td>
                         <td style={{
                             border: '1px solid black',

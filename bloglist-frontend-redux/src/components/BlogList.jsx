@@ -22,7 +22,7 @@ const BlogList = () => {
     return (
         <div style={{margin: '10px'}}>
             {blogs.map(blog =>
-                <Link key={blog.id} to={`/blogs/${blog.id}`}>
+                <Link key={blog.id} to={`/blogs/${blog.id}`} style={{textDecoration: 'none', color: 'inherit'}}>
                     <div style={containerStyles}>
                         <h3 className="title"><b>{blog.title}</b></h3>
                         <p>Author: {blog.author}</p>

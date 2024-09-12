@@ -13,7 +13,7 @@ const User = () => {
     }
 
     return (
-        <div>
+        <main style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
             <h2><u>{user.name}</u></h2>
             <h3>Added blogs</h3>
             <ul>
@@ -23,7 +23,7 @@ const User = () => {
                     </li>
                 ))}
             </ul>
-        </div>
+        </main>
     );
 };
 
