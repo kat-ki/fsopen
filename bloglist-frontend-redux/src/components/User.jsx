@@ -2,7 +2,6 @@ import React from 'react';
 import {Link, useParams} from "react-router-dom";
 import {useSelector} from "react-redux";
 import {getUserById} from "../state/reducers/usersSlice.js";
-import {selectAllBlogs} from "../state/reducers/blogsSlice.js";
 
 
 const User = () => {

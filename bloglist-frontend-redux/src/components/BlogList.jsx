@@ -1,8 +1,5 @@
 import React from 'react';
-import {useDispatch, useSelector} from "react-redux";
-import {removeBlog, updateBlogLikes} from "../state/reducers/blogsSlice.js";
-import {setNotification} from "../state/reducers/notificationSlice.js";
-import {setStatus} from "../state/reducers/statusSlice.js";
+import {useSelector} from "react-redux";
 import {Link} from "react-router-dom";
 
 const containerStyles = {
@@ -21,8 +18,6 @@ const containerStyles = {
 
 const BlogList = () => {
     const blogs = useSelector(state => state.blogs);
-    const user = useSelector(state => state.authUser.user);
-
 
     return (
         <div style={{margin: '10px'}}>
