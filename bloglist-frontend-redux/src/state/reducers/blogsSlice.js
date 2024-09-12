@@ -42,21 +42,24 @@ export const createBlog = (blog) => {
 export const updateBlogLikes = (blog) => {
     return async dispatch => {
         try {
-            const updatedLikes = {...blog, likes: blog.likes + 1};
-            const updatedBlog = await blogService.updateLikes(blog.id, updatedLikes);
+            const updatedBlog = await blogService.updateLikes(blog.id, blog);
             dispatch(updateBlog(updatedBlog));
         } catch (error) {
-            dispatch(setNotification(error.message));
+            throw new Error('Failed to update likes');
         }
     }
 }
 
 export const removeBlog = (id) => {
     return async dispatch => {
-        await blogService.deleteBlog(id);
-        dispatch(deleteABlog(id));
-    }
-}
+        try {
+            await blogService.deleteBlog(id);
+            dispatch(deleteABlog(id));
+        } catch (error) {
+            throw new Error('Failed to delete the blog');
+        }
+    };
+};
 
 export const selectAllBlogs = (state) => state.blogs;
 export const selectBlogByUser = (state, userId) => state.blogs.find(blog => blog.id === userId);
