@@ -12,6 +12,7 @@ import User from "./components/User.jsx";
 import Blog from "./components/Blog.jsx";
 import BlogList from "./components/BlogList.jsx";
 import {fetchAllUsers} from "./state/reducers/usersSlice.js";
+import Comment from "./components/Comment.jsx";
 
 store.dispatch(initializeUser());
 store.dispatch(initializeBlogs());
@@ -46,6 +47,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/blogs/:blogId/comments',
+                element: <Comment/>
             }
         ]
     }

@@ -3,6 +3,7 @@ import {removeBlog, selectAllBlogs, updateBlogLikes} from "../state/reducers/blo
 import {useNavigate, useParams} from "react-router-dom";
 import {setNotification} from "../state/reducers/notificationSlice.js";
 import {setStatus} from "../state/reducers/statusSlice.js";
+import Comment from "./Comment.jsx";
 
 // styles
 const containerStyles = {
@@ -93,11 +94,12 @@ const Blog = () => {
         }
     };
 
+
     return (
         <main style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
             <div style={containerStyles}>
                 <div style={detailedBlogStyles} className="blog">
-                    <p><b>{blog.title}</b></p>
+                    <h3><b>{blog.title}</b></h3>
                     <p>By {blog.author}</p>
                     <p>{blog.url}</p>
                     <div style={likesBoxStyle}>
@@ -111,6 +113,7 @@ const Blog = () => {
                         <button className="deleteBtn" style={deleteButtonStyles}
                                 onClick={() => deleteBlog(blog)}>delete</button> : null}
                 </div>
+                <Comment blogId={blogId} blog={blog}/>
             </div>
         </main>
     )
