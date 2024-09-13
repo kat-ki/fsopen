@@ -113,7 +113,7 @@ const Blog = () => {
                         <button className="deleteBtn" style={deleteButtonStyles}
                                 onClick={() => deleteBlog(blog)}>delete</button> : null}
                 </div>
-                <Comment blogId={blogId} blog={blog}/>
+                <Comment/>
             </div>
         </main>
     )

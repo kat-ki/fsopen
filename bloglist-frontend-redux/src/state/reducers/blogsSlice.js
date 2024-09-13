@@ -18,11 +18,19 @@ const blogsSlice = createSlice({
         },
         deleteABlog(state, action) {
             return state.filter(blog => blog.id !== action.payload);
+        },
+        appendComment(state, action) {
+            console.log('action payload slice 23', action.payload)
+            const {blogId, comment} = action.payload;
+            const blog = state.find(b => b.id === blogId);
+            if (blog) {
+                blog.comments.push(comment);
+            }
         }
     }
 })
 
-export const {setBlogs, createNew, updateBlog, deleteABlog} = blogsSlice.actions;
+export const {setBlogs, createNew, updateBlog, deleteABlog, appendComment} = blogsSlice.actions;
 
 export const initializeBlogs = () => {
     return async dispatch => {
@@ -58,6 +66,16 @@ export const removeBlog = (id) => {
             throw new Error('Failed to delete the blog');
         }
     };
+};
+
+export const addComment = (blogId, comment) => async dispatch => {
+    console.log('comment coming to addComment blogSlice', comment)
+    try {
+        const newComment = await blogService.addComment(blogId, comment);
+        dispatch(appendComment(newComment));
+    } catch (error) {
+        console.error('Failed to add comment:', error);
+    }
 };
 
 export const selectAllBlogs = (state) => state.blogs;

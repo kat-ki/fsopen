@@ -125,7 +125,6 @@ const BlogForm = () => {
                         </form>
                         <button onClick={() => setFormVisible(false)} style={buttonWarn}>cancel</button>
                     </div>
-
                 )
             }
         </div>
