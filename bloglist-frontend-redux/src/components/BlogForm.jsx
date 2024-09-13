@@ -1,5 +1,4 @@
 import React, {useState} from 'react'
-import PropTypes from "prop-types";
 import {setNotification} from "../state/reducers/notificationSlice.js";
 import {createBlog} from "../state/reducers/blogsSlice.js";
 import {useDispatch} from "react-redux";
