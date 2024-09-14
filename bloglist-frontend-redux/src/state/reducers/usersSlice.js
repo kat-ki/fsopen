@@ -1,6 +1,5 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import userService from '../../services/users.js'
-import {fetchAllBlogs} from "./blogsSlice.js";
 
 const initialState = [];
 

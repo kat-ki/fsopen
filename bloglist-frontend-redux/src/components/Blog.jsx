@@ -1,5 +1,5 @@
 import {useDispatch, useSelector} from "react-redux";
-import {removeBlog, selectAllBlogs, selectSingleBlog, updateBlogLikes} from "../state/reducers/blogsSlice.js";
+import {removeBlog, selectSingleBlog, updateBlogLikes} from "../state/reducers/blogsSlice.js";
 import {useNavigate, useParams} from "react-router-dom";
 import {setNotification} from "../state/reducers/notificationSlice.js";
 import {setStatus} from "../state/reducers/statusSlice.js";
