@@ -30,8 +30,6 @@ const deleteBlog = async (id) => {
 }
 
 const addComment = async (id, comment) => {
-    console.log('comment addComment axios request', comment)
-    console.log('comment addComment axios request', typeof comment)
     const response = await axios.post(`${baseUrl}/${id}/comments`, comment);
     return response.data;
 };

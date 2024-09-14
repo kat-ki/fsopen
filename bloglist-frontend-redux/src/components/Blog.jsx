@@ -3,7 +3,7 @@ import {removeBlog, selectAllBlogs, updateBlogLikes} from "../state/reducers/blo
 import {useNavigate, useParams} from "react-router-dom";
 import {setNotification} from "../state/reducers/notificationSlice.js";
 import {setStatus} from "../state/reducers/statusSlice.js";
-import Comment from "./Comment.jsx";
+import Comments from "./Comments.jsx";
 
 // styles
 const containerStyles = {
@@ -113,7 +113,7 @@ const Blog = () => {
                         <button className="deleteBtn" style={deleteButtonStyles}
                                 onClick={() => deleteBlog(blog)}>delete</button> : null}
                 </div>
-                <Comment/>
+                <Comments/>
             </div>
         </main>
     )

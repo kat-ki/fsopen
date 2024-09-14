@@ -20,12 +20,7 @@ const blogsSlice = createSlice({
             return state.filter(blog => blog.id !== action.payload);
         },
         appendComment(state, action) {
-            console.log('action payload slice 23', action.payload)
-            const {blogId, comment} = action.payload;
-            const blog = state.find(b => b.id === blogId);
-            if (blog) {
-                blog.comments.push(comment);
-            }
+            return state.map(blog => blog.id !== action.payload.id ? blog : action.payload)
         }
     }
 })
@@ -68,13 +63,14 @@ export const removeBlog = (id) => {
     };
 };
 
-export const addComment = (blogId, comment) => async dispatch => {
-    console.log('comment coming to addComment blogSlice', comment)
-    try {
-        const newComment = await blogService.addComment(blogId, comment);
-        dispatch(appendComment(newComment));
-    } catch (error) {
-        console.error('Failed to add comment:', error);
+export const addComment = (blogId, comment) => {
+    return async dispatch => {
+        try {
+            const newComment = await blogService.addComment(blogId, comment);
+            dispatch(appendComment(newComment));
+        } catch (error) {
+            console.error('Failed to add comment:', error);
+        }
     }
 };
 

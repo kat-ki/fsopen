@@ -4,18 +4,14 @@ import {useParams} from "react-router-dom";
 import {useSelector} from "react-redux";
 import {selectAllBlogs} from "../state/reducers/blogsSlice.js";
 
-const Comment = () => {
+const Comments = () => {
     const {blogId} = useParams();
     const blogs = useSelector(selectAllBlogs);
     const blog = blogs.find(blog => blog.id === blogId);
 
-    useEffect(()=> {}, []
-    )
-
     if (!blog) {
         return <div>Blog not found</div>;
     }
-    console.log('blog from Comment line 15', blog)
 
     return (
         <div>
@@ -30,4 +26,4 @@ const Comment = () => {
     );
 };
 
-export default Comment;
+export default Comments;
