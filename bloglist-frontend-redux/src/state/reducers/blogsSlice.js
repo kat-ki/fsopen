@@ -51,6 +51,9 @@ const blogsSlice = createSlice({
     name: 'blogs',
     initialState,
     reducers: {
+        sortBlogs(state, action) {
+            return state.sort((a, b) => b.likes - a.likes);
+        },
         appendComment(state, action) {
             return state.map(blog => blog.id !== action.payload.id ? blog : action.payload)
         }
@@ -99,7 +102,7 @@ const blogsSlice = createSlice({
     }
 })
 
-export const {setBlogs, appendComment} = blogsSlice.actions;
+export const {sortBlogs, appendComment} = blogsSlice.actions;
 
 export const addComment = (blogId, comment) => {
     return async dispatch => {
@@ -116,29 +119,3 @@ export const selectAllBlogs = (state) => state.blogs;
 export const selectSingleBlog = (state, blogId) => state.blogs.find(blog => blog.id === blogId);
 
 export default blogsSlice.reducer;
-
-
-/*export const addComment = createAsyncThunk(
-    'blogs/addComment',
-    async (data, {rejectWithValue}) => {
-        console.log(data)
-        const {blogId, comment} = data;
-        try {
-            return await blogService.addComment(blogId, comment);
-        } catch (error) {
-            return rejectWithValue('Failed to add comment');
-        }
-    }
-);*/
-
-//createAsyncThunk types - fix
-/*.addCase(addComment.pending, (state) => {
-    // console.log('Adding comment...')
-})
-.addCase(addComment.fulfilled, (state, action) => {
-    console.log('action payload', action.payload)
-    return state.map(blog => blog.id !== action.payload.id ? blog : action.payload);
-})
-.addCase(addComment.rejected, (state, action) => {
-    console.error(action.payload);
-});*/
