@@ -1,10 +1,10 @@
 import React from 'react';
 import {useSelector} from "react-redux";
-import {setAllUsers} from "../state/reducers/usersSlice.js";
+import {selectAllUsers} from "../state/reducers/usersSlice.js";
 import {Link} from "react-router-dom";
 
 const Users = () => {
-    const users = useSelector(setAllUsers);
+    const users = useSelector(selectAllUsers);
 
     return (
         <main style={{display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'center'}}>

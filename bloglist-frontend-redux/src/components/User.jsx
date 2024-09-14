@@ -1,12 +1,12 @@
 import React from 'react';
 import {Link, useParams} from "react-router-dom";
 import {useSelector} from "react-redux";
-import {getUserById} from "../state/reducers/usersSlice.js";
+import {selectSingleUser} from "../state/reducers/usersSlice.js";
 
 
 const User = () => {
     const {userId} = useParams();
-    const user = useSelector(state => getUserById(state, userId));
+    const user = useSelector(state => selectSingleUser(state, userId));
 
     if (!user) {
         return <div>Loading...</div>;

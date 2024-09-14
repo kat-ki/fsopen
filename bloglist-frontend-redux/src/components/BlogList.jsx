@@ -1,7 +1,7 @@
 import React from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {Link} from "react-router-dom";
-import {setBlogs} from "../state/reducers/blogsSlice.js";
+import {selectAllBlogs, setBlogs} from "../state/reducers/blogsSlice.js";
 
 const containerStyles = {
     paddingTop: 0,
@@ -33,7 +33,7 @@ const popularStyles = {
 }
 
 const BlogList = () => {
-    const blogs = useSelector(state => state.blogs);
+    const blogs = useSelector(selectAllBlogs);
     const dispatch = useDispatch();
     const showPopular = () => {
         const sortedByLikes = [...blogs].sort((a, b) => b.likes - a.likes);

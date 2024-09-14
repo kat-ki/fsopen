@@ -1,5 +1,5 @@
 import {useDispatch, useSelector} from "react-redux";
-import {removeBlog, selectAllBlogs, updateBlogLikes} from "../state/reducers/blogsSlice.js";
+import {removeBlog, selectAllBlogs, selectSingleBlog, updateBlogLikes} from "../state/reducers/blogsSlice.js";
 import {useNavigate, useParams} from "react-router-dom";
 import {setNotification} from "../state/reducers/notificationSlice.js";
 import {setStatus} from "../state/reducers/statusSlice.js";
@@ -60,8 +60,7 @@ const Blog = () => {
     const {blogId} = useParams();
     const user = useSelector(state => state.authUser.user);
     const dispatch = useDispatch();
-    const blogs = useSelector(selectAllBlogs);
-    const blog = blogs.find(blog => blog.id === blogId);
+    const blog = useSelector(state => selectSingleBlog(state, blogId));
 
     const navigate = useNavigate();
 

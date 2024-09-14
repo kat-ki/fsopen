@@ -5,7 +5,6 @@ import {useSelector} from "react-redux";
 import LoginForm from "./components/LoginForm.jsx";
 import BlogList from "./components/BlogList.jsx";
 
-
 const App = () => {
     const user = useSelector(state => state.authUser.user);
 

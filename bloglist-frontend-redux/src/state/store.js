@@ -1,17 +1,17 @@
 import {configureStore} from "@reduxjs/toolkit";
-import blogsSlice from "./reducers/blogsSlice";
-import notificationSlice from "./reducers/notificationSlice";
-import statusSlice from "./reducers/statusSlice.js";
-import usersSlice from "./reducers/usersSlice.js";
-import authSlice from "./reducers/authSlice.js";
+import blogsReducer from "./reducers/blogsSlice";
+import notificationReducer from "./reducers/notificationSlice";
+import statusReducer from "./reducers/statusSlice.js";
+import usersReducer from "./reducers/usersSlice.js";
+import authReducer from "./reducers/authSlice.js";
 
 export const store = configureStore({
     reducer: {
-        blogs: blogsSlice,
-        notification: notificationSlice,
-        authUser: authSlice,
-        users: usersSlice,
-        status: statusSlice
+        blogs: blogsReducer,
+        notification: notificationReducer,
+        authUser: authReducer,
+        users: usersReducer,
+        status: statusReducer
     }
 })
 

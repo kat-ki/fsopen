@@ -1,13 +1,12 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import CommentForm from "./CommentForm.jsx";
 import {useParams} from "react-router-dom";
 import {useSelector} from "react-redux";
-import {selectAllBlogs} from "../state/reducers/blogsSlice.js";
+import {selectSingleBlog} from "../state/reducers/blogsSlice.js";
 
 const Comments = () => {
     const {blogId} = useParams();
-    const blogs = useSelector(selectAllBlogs);
-    const blog = blogs.find(blog => blog.id === blogId);
+    const blog = useSelector(state => selectSingleBlog(state, blogId));
 
     if (!blog) {
         return <div>Blog not found</div>;

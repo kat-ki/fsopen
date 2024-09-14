@@ -1,67 +1,105 @@
-import {createSlice} from "@reduxjs/toolkit";
+import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import blogService from './../../services/blogs'
 
 const initialState = [];
+export const fetchAllBlogs = createAsyncThunk(
+    'blogs/fetchAllBlogs',
+    async (_, {rejectWithValue}) => {
+        try {
+            return await blogService.getAll();
+        } catch (error) {
+            return rejectWithValue(error.response.data);
+        }
+    });
+
+export const createBlog = createAsyncThunk(
+    'blogs/createBlog',
+    async (blog, {rejectWithValue}) => {
+        try {
+            return await blogService.create(blog);
+        } catch (error) {
+            return rejectWithValue(error.response.data);
+        }
+    }
+);
+
+export const updateBlogLikes = createAsyncThunk(
+    'blogs/updateBlogLikes',
+    async (blog, {rejectWithValue}) => {
+        try {
+            return await blogService.updateLikes(blog.id, blog);
+        } catch (error) {
+            return rejectWithValue('Failed to update likes');
+        }
+    }
+);
+
+export const removeBlog = createAsyncThunk(
+    'blogs/removeBlog',
+    async (id, {rejectWithValue}) => {
+        try {
+            await blogService.deleteBlog(id);
+            return id;
+        } catch (error) {
+            return rejectWithValue('Failed to delete blog');
+        }
+    }
+);
+
 
 const blogsSlice = createSlice({
     name: 'blogs',
     initialState,
     reducers: {
-        setBlogs(state, action) {
-            return action.payload;
-        },
-        createNew(state, action) {
-            state.push(action.payload);
-        },
-        updateBlog(state, action) {
-            return state.map(blog => blog.id !== action.payload.id ? blog : action.payload)
-        },
-        deleteABlog(state, action) {
-            return state.filter(blog => blog.id !== action.payload);
-        },
         appendComment(state, action) {
             return state.map(blog => blog.id !== action.payload.id ? blog : action.payload)
         }
+    },
+    extraReducers: (builder) => {
+        builder
+            .addCase(fetchAllBlogs.pending, (state, action) => {
+                // console.log('fetching blogs in progress')
+            })
+            .addCase(fetchAllBlogs.fulfilled, (state, action) => {
+                return action.payload;
+            })
+            .addCase(fetchAllBlogs.rejected, (state, action) => {
+                console.error('Failed to fetch blogs');
+            })
+
+            .addCase(createBlog.pending, (state, action) => {
+                // console.log('creating blog in progress')
+            })
+            .addCase(createBlog.fulfilled, (state, action) => {
+                state.push(action.payload);
+            })
+            .addCase(createBlog.rejected, (state, action) => {
+                console.error('Failed to create a blog');
+            })
+
+            .addCase(updateBlogLikes.pending, (state) => {
+                //console.log('Updating blog likes...')
+            })
+            .addCase(updateBlogLikes.fulfilled, (state, action) => {
+                return state.map(blog => blog.id !== action.payload.id ? blog : action.payload);
+            })
+            .addCase(updateBlogLikes.rejected, (state, action) => {
+                console.error(action.payload);
+            })
+
+            .addCase(removeBlog.pending, (state) => {
+                //console.log('Deleting blog...')
+            })
+            .addCase(removeBlog.fulfilled, (state, action) => {
+                return state.filter(blog => blog.id !== action.payload);
+            })
+            .addCase(removeBlog.rejected, (state, action) => {
+                console.error(action.payload);
+            })
     }
 })
 
-export const {setBlogs, createNew, updateBlog, deleteABlog, appendComment} = blogsSlice.actions;
-
-export const initializeBlogs = () => {
-    return async dispatch => {
-        const blogs = await blogService.getAll();
-        dispatch(setBlogs(blogs))
-    }
-}
-
-export const createBlog = (blog) => {
-    return async dispatch => {
-        const newBlog = await blogService.create(blog);
-        dispatch(createNew(newBlog))
-    }
-}
-
-export const updateBlogLikes = (blog) => {
-    return async dispatch => {
-        try {
-            const updatedBlog = await blogService.updateLikes(blog.id, blog);
-            dispatch(updateBlog(updatedBlog));
-        } catch (error) {
-            throw new Error('Failed to update likes');
-        }
-    }
-}
-
-export const removeBlog = (id) => {
-    return async dispatch => {
-        try {
-            await blogService.deleteBlog(id);
-            dispatch(deleteABlog(id));
-        } catch (error) {
-            throw new Error('Failed to delete the blog');
-        }
-    };
-};
+export const {setBlogs, appendComment} = blogsSlice.actions;
 
 export const addComment = (blogId, comment) => {
     return async dispatch => {
@@ -75,5 +113,32 @@ export const addComment = (blogId, comment) => {
 };
 
 export const selectAllBlogs = (state) => state.blogs;
+export const selectSingleBlog = (state, blogId) => state.blogs.find(blog => blog.id === blogId);
 
 export default blogsSlice.reducer;
+
+
+/*export const addComment = createAsyncThunk(
+    'blogs/addComment',
+    async (data, {rejectWithValue}) => {
+        console.log(data)
+        const {blogId, comment} = data;
+        try {
+            return await blogService.addComment(blogId, comment);
+        } catch (error) {
+            return rejectWithValue('Failed to add comment');
+        }
+    }
+);*/
+
+//createAsyncThunk types - fix
+/*.addCase(addComment.pending, (state) => {
+    // console.log('Adding comment...')
+})
+.addCase(addComment.fulfilled, (state, action) => {
+    console.log('action payload', action.payload)
+    return state.map(blog => blog.id !== action.payload.id ? blog : action.payload);
+})
+.addCase(addComment.rejected, (state, action) => {
+    console.error(action.payload);
+});*/
