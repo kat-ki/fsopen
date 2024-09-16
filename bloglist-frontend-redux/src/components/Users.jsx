@@ -4,7 +4,7 @@ import {selectAllUsers} from "../state/reducers/usersSlice.js";
 import {Link} from "react-router-dom";
 import {
     Header,
-    HeaderContent, HeaderSubheader,
+    HeaderContent,
     Table,
     TableBody,
     TableCell,
