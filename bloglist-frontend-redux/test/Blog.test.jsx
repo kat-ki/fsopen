@@ -1,7 +1,7 @@
 import {render, screen} from "@testing-library/react";
 import {describe, expect, test} from 'vitest';
 import userEvent from '@testing-library/user-event'
-import Blog from "../src/components/Blog.jsx";
+import BlogCard from "../src/components/BlogCard.jsx";
 
 const blog = {
     id: '33',
@@ -12,7 +12,7 @@ const blog = {
 }
 describe('<Blog />', () => {
     test('renders only title and an author of a blog', () => {
-        render(<Blog blog={blog}/>)
+        render(<BlogCard blog={blog}/>)
 
         const title = screen.getByText(blog.title);
         const author = screen.getByText(blog.author);
@@ -26,7 +26,7 @@ describe('<Blog />', () => {
     });
     test('renders url and number of likes when button is clicked', async () => {
         const mockViewButton = vi.fn();
-        render(<Blog blog={blog} handleShow={mockViewButton}/>)
+        render(<BlogCard blog={blog} handleShow={mockViewButton}/>)
 
         const url = screen.queryByText(blog.url);
         const likes = screen.queryByText(blog.likes);
@@ -43,9 +43,9 @@ describe('<Blog />', () => {
         const mockViewButtonClick = vi.fn();
         const mockLikeButtonClick = vi.fn();
 
-        render(<Blog blog={blog}
-                     handleShow={mockViewButtonClick}
-                     handleLike={mockLikeButtonClick}/>)
+        render(<BlogCard blog={blog}
+                         handleShow={mockViewButtonClick}
+                         handleLike={mockLikeButtonClick}/>)
 
         const user = userEvent.setup();
         const viewButton = screen.getByText('view');

@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {useDispatch} from "react-redux";
 import {addComment} from "../state/reducers/blogsSlice.js";
+import {FormField, Button, Form} from 'semantic-ui-react'
 
 const CommentForm = ({blogId}) => {
     const dispatch = useDispatch();
@@ -12,20 +13,17 @@ const CommentForm = ({blogId}) => {
     };
 
     return (
-        <div>
-            <form onSubmit={handleSubmitComment}>
-                <input
-                    type="text"
-                    value={comment}
-                    onChange={(e) => setComment(e.target.value)}
-                    placeholder="Add a comment"
-                    style={{width: '30%', padding: '10px', borderRadius: '5px', borderColor: 'lightgrey'}}
+        <Form onSubmit={handleSubmitComment} style={{display: 'flex', flexDirection: 'column'}}>
+            <FormField>
+                <input type="text"
+                       value={comment}
+                       onChange={(e) => setComment(e.target.value)}
+                       placeholder="Add a comment"
+                       style={{width: '80%', marginRight: '10px'}}
                 />
-                <button type="submit" style={{marginTop: '10px', padding: '10px'}} disabled={!comment}>
-                    Add Comment
-                </button>
-            </form>
-        </div>
+            </FormField>
+            <Button size="small" floated="right" type='submit' color="teal" content="Submit" disabled={!comment}/>
+        </Form>
     );
 };
 

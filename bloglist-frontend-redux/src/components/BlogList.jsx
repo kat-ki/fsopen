@@ -2,35 +2,7 @@ import React from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {Link} from "react-router-dom";
 import {selectAllBlogs, sortBlogs} from "../state/reducers/blogsSlice.js";
-
-const containerStyles = {
-    paddingTop: 0,
-    paddingLeft: 10,
-    border: 'solid',
-    borderColor: 'lightgrey',
-    borderWidth: 1,
-    marginBottom: 1,
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-    alignItems: 'flexStart',
-    width: '100%'
-}
-const popularStyles = {
-    backgroundColor: 'lightBlue',
-    width: '30%',
-    color: 'black',
-    padding: '4px 8px',
-    margin: '10px',
-    borderRadius: '5px',
-    boxShadow: '0',
-    borderColor: 'inherit',
-    fontFamily: 'sans-serif',
-    fontSize: '14px',
-    textAlign: 'center',
-    cursor: 'pointer',
-    outline: 'none'
-}
+import {Header, Segment} from "semantic-ui-react";
 
 const BlogList = () => {
     const blogs = useSelector(selectAllBlogs);
@@ -40,14 +12,23 @@ const BlogList = () => {
     }
 
     return (
-        <div style={{margin: '10px'}}>
-            <h3 style={popularStyles} onClick={showPopular}>Show popular</h3>
+        <div>
+            <Header onClick={showPopular}
+                    as='h4'
+                    textAlign='center'
+                    color="black">Show popular
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                     className="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                    <path
+                        d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+                </svg>
+            </Header>
             {blogs.map(blog =>
-                <Link key={blog.id} to={`/blogs/${blog.id}`} style={{textDecoration: 'none', color: 'inherit'}}>
-                    <div style={containerStyles}>
-                        <h3 className="title"><b>{blog.title}</b></h3>
-                        <p>Author: {blog.author}</p>
-                    </div>
+                <Link key={blog.id} to={`/blogs/${blog.id}`}>
+                    <Segment>
+                        <Header as="h4">{blog.title}</Header>
+                        <p>By <b>{blog.author}</b></p>
+                    </Segment>
                 </Link>
             )}
         </div>

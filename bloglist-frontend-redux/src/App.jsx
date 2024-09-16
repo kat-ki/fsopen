@@ -1,24 +1,19 @@
 import React from 'react';
 import Notification from './components/Notification.jsx'
 import BlogForm from './components/BlogForm.jsx'
-import {useSelector} from "react-redux";
-import LoginForm from "./components/LoginForm.jsx";
 import BlogList from "./components/BlogList.jsx";
+import {Header} from "semantic-ui-react";
 
 const App = () => {
-    const user = useSelector(state => state.authUser.user);
 
     return (
         <main style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
-            <h2 style={{margin: '20px'}}>Blogs</h2>
+            <Header>Blogs</Header>
             <Notification/>
-            {user === null
-                ? <LoginForm/>
-                : <div>
-                    <BlogForm/>
-                    <BlogList/>
-                </div>
-            }
+            <div>
+                <BlogForm/>
+                <BlogList/>
+            </div>
         </main>
     )
 }

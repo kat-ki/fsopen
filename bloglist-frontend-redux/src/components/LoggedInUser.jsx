@@ -1,36 +1,17 @@
 import React from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {logout} from "../state/reducers/authSlice.js";
-import LoginForm from "./LoginForm.jsx";
+import {Button} from "semantic-ui-react";
 
-
-const buttonWarn = {
-    backgroundColor: 'lightcoral',
-    color: 'black',
-    padding: '4px 8px',
-    margin: '10px',
-    borderRadius: '5px',
-    boxShadow: '0',
-    borderColor: 'inherit',
-    fontFamily: 'sans-serif',
-    fontSize: '14px',
-    textAlign: 'center',
-    cursor: 'pointer',
-    outline: 'none'
-}
 
 const LoggedInUser = () => {
     const user = useSelector(state => state.authUser.user);
     const dispatch = useDispatch();
 
     return (
-        <div style={{
-            display: 'flex',
-            flexDirection: 'row',
-            alignItems: 'center'
-        }}>
+        <div>
             <span style={{marginRight: '10px'}}><b>{user?.name}</b> logged in</span>
-            <button onClick={() => dispatch(logout())} style={buttonWarn}>log out</button>
+            <Button content="Log out" onClick={() => dispatch(logout())} color="red" size="small"/>
         </div>
 
     );

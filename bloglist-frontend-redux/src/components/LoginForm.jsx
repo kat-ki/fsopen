@@ -5,6 +5,7 @@ import {setUser} from "../state/reducers/authSlice.js";
 import {setNotification} from "../state/reducers/notificationSlice.js";
 import {useDispatch} from "react-redux";
 import {setStatus} from "../state/reducers/statusSlice.js";
+import { Button, Form, Grid, Header, Segment } from 'semantic-ui-react'
 
 const LoginForm = () => {
     const dispatch = useDispatch();
@@ -31,29 +32,40 @@ const LoginForm = () => {
     }
 
     return (
-        <form onSubmit={handleLogin}>
-            <div>
-                <span>username </span>
-                <input
-                    type="text"
-                    name="Username"
-                    data-testid="username"
-                    value={username}
-                    onChange={({target}) => setUsername(target.value)}
-                />
-            </div>
-            <div>
-                <span>password </span>
-                <input
-                    type="password"
-                    name="Password"
-                    data-testid="password"
-                    value={password}
-                    onChange={({target}) => setPassword(target.value)}
-                />
-            </div>
-            <button type="submit">log in</button>
-        </form>
+        <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
+            <Grid.Column style={{ maxWidth: 450 }}>
+                <Header as='h2' color='teal' textAlign='center'>
+                    Log-in to your account
+                </Header>
+                <Form onSubmit={handleLogin} size='large'>
+                    <Segment stacked>
+                        <Form.Input
+                            fluid icon='user'
+                            iconPosition='left'
+                            placeholder='Login'
+                            type="text"
+                            name="Username"
+                            data-testid="username"
+                            value={username}
+                            onChange={({target}) => setUsername(target.value)}
+                        />
+                        <Form.Input
+                            fluid
+                            icon='lock'
+                            iconPosition='left'
+                            placeholder='Password'
+                            type='password'
+                            name="Password"
+                            data-testid="password"
+                            value={password}
+                            onChange={({target}) => setPassword(target.value)}
+                        />
+
+                        <Button type="submit" content="Login" color='teal' fluid size='large'/>
+                    </Segment>
+                </Form>
+            </Grid.Column>
+        </Grid>
     );
 };
 

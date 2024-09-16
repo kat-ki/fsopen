@@ -3,48 +3,7 @@ import {setNotification} from "../state/reducers/notificationSlice.js";
 import {createBlog} from "../state/reducers/blogsSlice.js";
 import {useDispatch} from "react-redux";
 import {setStatus} from "../state/reducers/statusSlice.js";
-
-const formStyles = {
-    marginBottom: '10px',
-    display: 'flex',
-    flexDirection: 'column',
-    width: '100%',
-    paddingBottom: '10px'
-}
-const inputStyles = {
-    marginTop: '6px',
-    fontSize: '12px',
-    fontFamily: 'sans-serif'
-}
-const buttonstyles = {
-    backgroundColor: 'lightgreen',
-    width: 'auto',
-    color: 'black',
-    padding: '4px 8px',
-    margin: '10px',
-    borderRadius: '5px',
-    boxShadow: '0',
-    borderColor: 'inherit',
-    fontFamily: 'sans-serif',
-    fontSize: '14px',
-    textAlign: 'center',
-    cursor: 'pointer',
-    outline: 'none'
-}
-const buttonWarn = {
-    backgroundColor: 'lightcoral',
-    color: 'black',
-    padding: '4px 8px',
-    margin: '10px',
-    borderRadius: '5px',
-    boxShadow: '0',
-    borderColor: 'inherit',
-    fontFamily: 'sans-serif',
-    fontSize: '14px',
-    textAlign: 'center',
-    cursor: 'pointer',
-    outline: 'none'
-}
+import {FormField, Button, Form} from 'semantic-ui-react'
 
 const BlogForm = () => {
     const [title, setTitle] = useState('')
@@ -90,40 +49,38 @@ const BlogForm = () => {
         }
     }
 
-    const toggleFormVisibility = () => {
-        setFormVisible(!formVisible);
-    }
-
     return (
-        <div style={{margin: '10px'}}>
-            <h4>Add new blog</h4>
-            <button onClick={toggleFormVisibility} style={buttonstyles}>add blog</button>
+        <div>
+            <div>
+                <Button content="+ add new" onClick={() => setFormVisible(!formVisible)} color="teal"/>
+            </div>
             {formVisible &&
-                (<div>
-                        <form onSubmit={addBlog} style={formStyles}>
+                (
+                    <Form onSubmit={addBlog}>
+                        <FormField>
+                            <label>Title</label>
                             <input type="text"
                                    name="title"
-                                   placeholder="title"
-                                   style={inputStyles}
                                    value={title}
                                    onChange={({target}) => setTitle(target.value)}/>
+                        </FormField>
+                        <FormField>
+                            <label>Author</label>
                             <input type="text"
                                    name="author"
-                                   placeholder="author"
-                                   style={inputStyles}
                                    value={author}
                                    onChange={({target}) => setAuthor(target.value)}/>
+                        </FormField>
+                        <FormField>
+                            <label>Address</label>
                             <input type="text"
                                    name="url"
-                                   placeholder="url"
-                                   style={inputStyles}
                                    value={url}
                                    onChange={({target}) => setUrl(target.value)}/>
-
-                            <button type="submit" style={buttonstyles}>Create</button>
-                        </form>
-                        <button onClick={() => setFormVisible(false)} style={buttonWarn}>cancel</button>
-                    </div>
+                        </FormField>
+                        <Button type='submit' content="Submit" color="teal"/>
+                        <Button type="button" content="Cancel" negative onClick={() => setFormVisible(false)}/>
+                    </Form>
                 )
             }
         </div>
