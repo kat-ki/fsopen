@@ -1,3 +1,4 @@
+// 9.2: Exercise calculator
 interface Result {
     periodLength: number,
     trainingDays: number,
@@ -41,3 +42,6 @@ const calculateExercises = (hoursPerDay: number[], target: number): Result => {
 }
 
 console.log(calculateExercises([3, 0, 2, 4.5, 0, 3, 1], 2))
+
+// 9.3 Command line Exercise Calculator
+
