@@ -8,7 +8,7 @@ const PORT = 3000;
 
 app.get('/ping', (_req, res) => {
     console.log('pinged here');
-    res.send('pong');
+    res.send('pong Ilaris flight');
 });
 
 app.use('/api/diaries', diaryRouter);

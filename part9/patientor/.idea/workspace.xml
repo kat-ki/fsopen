@@ -4,14 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="69794134-c9bc-43ed-9fa1-90f3c54df0cd" name="Changes" comment="9.9: add patientor client" />
+    <list default="true" id="69794134-c9bc-43ed-9fa1-90f3c54df0cd" name="Changes" comment="9.9: add patientor client">
+      <change afterPath="$PROJECT_DIR$/server/src/utils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ilaris-flight-diaries/src/data/entries.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../ilaris-flight-diaries/src/data/entries.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ilaris-flight-diaries/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../ilaris-flight-diaries/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ilaris-flight-diaries/src/routes/diaries.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../ilaris-flight-diaries/src/routes/diaries.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ilaris-flight-diaries/src/services/diaryService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../ilaris-flight-diaries/src/services/diaryService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ilaris-flight-diaries/src/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../ilaris-flight-diaries/src/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/routes/patients.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes/patients.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/services/patientsService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/services/patientsService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/types.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/client" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -30,7 +44,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/ekra/WebstormProjects/fsopen/part9",
+    "last_opened_file_path": "C:/Users/ekra/WebstormProjects/fsopen/part9/ilaris-flight-diaries",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -68,6 +82,7 @@
       <workItem from="1728566665881" duration="78000" />
       <workItem from="1728566745461" duration="3518000" />
       <workItem from="1728570309637" duration="76000" />
+      <workItem from="1729500722459" duration="4026000" />
     </task>
     <task id="LOCAL-00001" summary="add patientor">
       <option name="closed" value="true" />

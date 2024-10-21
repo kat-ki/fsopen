@@ -1,3 +1,4 @@
+
 export interface Diagnosis {
     code: string,
     name: string,
@@ -13,4 +14,5 @@ export interface Patient {
     occupation: string
 }
 
-export type PatientExcludingSSN = Omit<Patient, 'ssn'>
+export type PatientExcludingSSN = Omit<Patient, 'ssn'>;
+export type NewPatientEntry = Omit<Patient, 'id'>;
