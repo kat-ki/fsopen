@@ -8,7 +8,7 @@ router.get('/', (_req, res) => {
     res.send(patientsService.getPatientsExcludingSSN());
 });
 
-router.post('/:id', (req, res) => {
+router.post('/', (req, res) => {
     try {
         const newPatient = addNewPatientEntry(req.body);
         const addedPatientEntry = patientsService.addPatient(newPatient);

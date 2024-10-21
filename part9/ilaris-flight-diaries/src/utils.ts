@@ -13,7 +13,6 @@ const parseComment = (comment: unknown): string => {
 const isDate = (date: string): boolean => {
     return Boolean(Date.parse(date));
 };
-
 const parseDate = (date: unknown): string => {
     if (!date || !isString(date) || !isDate(date)) {
         throw new Error('Incorrect or missing date: ' + date);

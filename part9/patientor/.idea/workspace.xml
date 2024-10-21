@@ -4,20 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="69794134-c9bc-43ed-9fa1-90f3c54df0cd" name="Changes" comment="9.9: add patientor client">
-      <change afterPath="$PROJECT_DIR$/server/src/utils.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ilaris-flight-diaries/src/data/entries.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../ilaris-flight-diaries/src/data/entries.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ilaris-flight-diaries/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../ilaris-flight-diaries/src/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ilaris-flight-diaries/src/routes/diaries.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../ilaris-flight-diaries/src/routes/diaries.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ilaris-flight-diaries/src/services/diaryService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../ilaris-flight-diaries/src/services/diaryService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ilaris-flight-diaries/src/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../ilaris-flight-diaries/src/types.ts" afterDir="false" />
+    <list default="true" id="69794134-c9bc-43ed-9fa1-90f3c54df0cd" name="Changes" comment="9.12: add post /api/patients">
+      <change beforePath="$PROJECT_DIR$/../ilaris-flight-diaries/src/utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../ilaris-flight-diaries/src/utils.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/data/patients.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/data/patients.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/routes/patients.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes/patients.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/services/patientsService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/services/patientsService.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/utils.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +76,7 @@
       <workItem from="1728566665881" duration="78000" />
       <workItem from="1728566745461" duration="3518000" />
       <workItem from="1728570309637" duration="76000" />
-      <workItem from="1729500722459" duration="4026000" />
+      <workItem from="1729500722459" duration="6821000" />
     </task>
     <task id="LOCAL-00001" summary="add patientor">
       <option name="closed" value="true" />
@@ -108,7 +102,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728570081368</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="9.12: add post /api/patients">
+      <option name="closed" value="true" />
+      <created>1729510252223</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1729510252223</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -129,6 +131,7 @@
     <MESSAGE value="add patientor" />
     <MESSAGE value="9.8: add get route" />
     <MESSAGE value="9.9: add patientor client" />
-    <option name="LAST_COMMIT_MESSAGE" value="9.9: add patientor client" />
+    <MESSAGE value="9.12: add post /api/patients" />
+    <option name="LAST_COMMIT_MESSAGE" value="9.12: add post /api/patients" />
   </component>
 </project>
