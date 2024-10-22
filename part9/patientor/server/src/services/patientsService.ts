@@ -2,11 +2,11 @@ import patients from '../data/patients';
 import {NewPatientEntry, Patient, PatientExcludingSSN} from "../types";
 import {v1 as uuid} from 'uuid'
 
-export const getPatients = (): Patient[] => {
+const getPatients = (): Patient[] => {
     return patients;
-}
+};
 
-export const getPatientsExcludingSSN = (): PatientExcludingSSN[] => {
+const getPatientsExcludingSSN = (): PatientExcludingSSN[] => {
     return patients.map(({id, name, dateOfBirth, gender, occupation}) => {
         return {
             id,
