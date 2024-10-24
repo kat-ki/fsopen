@@ -4,20 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="69794134-c9bc-43ed-9fa1-90f3c54df0cd" name="Changes" comment="9.13: set up safe parsing, validation and type predicate to the POST /api/patients request; refactor the gender field to use an enum type.">
-      <change beforePath="$PROJECT_DIR$/../ilaris-flight-diaries/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../ilaris-flight-diaries/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ilaris-flight-diaries/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../ilaris-flight-diaries/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ilaris-flight-diaries/src/routes/diaries.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../ilaris-flight-diaries/src/routes/diaries.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ilaris-flight-diaries/src/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../ilaris-flight-diaries/src/types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ilaris-flight-diaries/src/utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../ilaris-flight-diaries/src/utils.ts" afterDir="false" />
+    <list default="true" id="69794134-c9bc-43ed-9fa1-90f3c54df0cd" name="Changes" comment="9.14: used Zod to validate the requests to the POST /api/patients">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/data/patients.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/data/patients.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/routes/patients.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes/patients.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/services/patientsService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/services/patientsService.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/utils.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +33,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/ekra/WebstormProjects/fsopen/part9/patientor",
+    "last_opened_file_path": "C:/Users/ekra/WebstormProjects/fsopen/part9/other-9.15",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -84,7 +73,8 @@
       <workItem from="1728570309637" duration="76000" />
       <workItem from="1729500722459" duration="7864000" />
       <workItem from="1729585980483" duration="240000" />
-      <workItem from="1729589570432" duration="4471000" />
+      <workItem from="1729589570432" duration="5669000" />
+      <workItem from="1729769139588" duration="106000" />
     </task>
     <task id="LOCAL-00001" summary="add patientor">
       <option name="closed" value="true" />
@@ -126,7 +116,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729513059463</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="9.14: used Zod to validate the requests to the POST /api/patients">
+      <option name="closed" value="true" />
+      <created>1729603952349</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1729603952349</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -149,6 +147,7 @@
     <MESSAGE value="9.9: add patientor client" />
     <MESSAGE value="9.12: add post /api/patients" />
     <MESSAGE value="9.13: set up safe parsing, validation and type predicate to the POST /api/patients request; refactor the gender field to use an enum type." />
-    <option name="LAST_COMMIT_MESSAGE" value="9.13: set up safe parsing, validation and type predicate to the POST /api/patients request; refactor the gender field to use an enum type." />
+    <MESSAGE value="9.14: used Zod to validate the requests to the POST /api/patients" />
+    <option name="LAST_COMMIT_MESSAGE" value="9.14: used Zod to validate the requests to the POST /api/patients" />
   </component>
 </project>

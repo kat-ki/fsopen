@@ -23,7 +23,6 @@ export interface Patient {
 
 export type PatientExcludingSSN = Omit<Patient, 'ssn'>;
 export type NewPatientEntry = z.infer<typeof NewPatientEntrySchema>;
-/*
 export interface Patient extends NewPatientEntry {
     id: string
-}*/
+}
