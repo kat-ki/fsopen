@@ -1,14 +1,15 @@
+import Part from "./Part.tsx";
+import {CoursePart} from "../App.tsx";
 
-interface ContentPart {
-    name: string,
-    exerciseCount: number
+interface ContentProps {
+    course: CoursePart[]
 }
-const Content = (props: ContentPart[]): JSX.Element => {
-    const {course} = props;
+
+const Content = ({course}: ContentProps) => {
     return (
         <div>
             {course.map((c, index) => (
-                <p key={index}>{c.name} {c.exerciseCount}</p>
+                <Part key={index} course={c}/>
             ))}
         </div>
     );

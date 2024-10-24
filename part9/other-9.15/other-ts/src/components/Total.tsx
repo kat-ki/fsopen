@@ -4,9 +4,7 @@ type TotalProps = {
 const Total = ({total}: TotalProps) => {
     return (
         <div>
-            <p>
-                Number of exercises: <b>{total}</b>
-            </p>
+            <h3> Number of exercises: {total}</h3>
         </div>
     );
 };
