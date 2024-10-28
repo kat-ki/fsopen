@@ -2,6 +2,7 @@ import {ChangeEvent, FormEvent, useEffect, useState} from "react";
 import {DiaryEntry, NewDiaryEntry, ValidationError, Visibility, Weather} from "./types.ts";
 import {getEntries, createNewEntry} from "./services/entriesService.ts";
 import axios from "axios";
+import './index.css'
 
 function App() {
     const [entries, setEntries] = useState<DiaryEntry[]>([]);
@@ -61,12 +62,13 @@ function App() {
             <h3 style={{backgroundColor: 'red', color: 'white'}}>{error}</h3>
             <div>
                 <form onSubmit={addNewEntry}>
+                    <label htmlFor="date">Date </label>
                     <input
                         name="date"
-                        placeholder="date"
                         value={newEntry.date}
                         onChange={handleChange}
                     />
+                    <label htmlFor="visibility">Visibility</label>
                     <select
                         name="visibility"
                         value={newEntry.visibility}
@@ -77,6 +79,7 @@ function App() {
                         <option value={Visibility.Ok}>Ok</option>
                         <option value={Visibility.Poor}>Poor</option>
                     </select>
+                    <label htmlFor="weather">Weather</label>
                     <select
                         name="weather"
                         value={newEntry.weather}
@@ -88,6 +91,7 @@ function App() {
                         <option value={Weather.Stormy}>Stormy</option>
                         <option value={Weather.Windy}>Windy</option>
                     </select>
+                    <label htmlFor="comment">Comment</label>
                     <input
                         name="comment"
                         placeholder="comment"

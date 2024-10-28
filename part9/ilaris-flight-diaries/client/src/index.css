@@ -48,6 +48,7 @@ button {
     font-weight: 500;
     font-family: inherit;
     background-color: #1a1a1a;
+    color: white;
     cursor: pointer;
     transition: border-color 0.25s;
 }
@@ -72,6 +73,26 @@ button:focus-visible {
     }
 
     button {
-        background-color: #f9f9f9;
+        background-color: #58adca;
+        color: white;
     }
+}
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+
+label {
+    margin-top: 6px;
+    font-weight: bold;
+}
+
+input, select {
+    margin-top: 5px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
