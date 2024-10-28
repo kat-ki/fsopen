@@ -47,8 +47,9 @@ function App() {
             });
         } catch (err) {
             if (axios.isAxiosError<ValidationError, Record<string, unknown>>(err)) {
-                setError(`${err.response.statusText}. Missing data`);
-                setTimeout(()=> {
+                //console.log(err.response);
+                setError(`${err.response.statusText}. Data is missing or has a wrong format`);
+                setTimeout(() => {
                     setError('');
                 }, 3000);
             }
@@ -57,7 +58,7 @@ function App() {
     return (
         <>
             <h3>Diary Entries</h3>
-            <h2 style={{backgroundColor: 'red', color: 'white'}}>{error}</h2>
+            <h3 style={{backgroundColor: 'red', color: 'white'}}>{error}</h3>
             <div>
                 <form onSubmit={addNewEntry}>
                     <input
