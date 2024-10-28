@@ -1,5 +1,5 @@
 import {ChangeEvent, FormEvent, useEffect, useState} from "react";
-import {DiaryEntry, NewDiaryEntry, Visibility, Weather} from "./types.ts";
+import {DiaryEntry, NewDiaryEntry, ValidationError, Visibility, Weather} from "./types.ts";
 import {getEntries, createNewEntry} from "./services/entriesService.ts";
 import axios from "axios";
 
@@ -11,6 +11,7 @@ function App() {
         visibility: Visibility.Great,
         comment: ""
     });
+    const [error, setError] = useState<string>('');
 
     useEffect(() => {
         const fetchEntries = async () => {
@@ -44,13 +45,19 @@ function App() {
                 visibility: Visibility.Great,
                 comment: ""
             });
-        } catch (error) {
-            console.log(error);
+        } catch (err) {
+            if (axios.isAxiosError<ValidationError, Record<string, unknown>>(err)) {
+                setError(`${err.response.statusText}. Missing data`);
+                setTimeout(()=> {
+                    setError('');
+                }, 3000);
+            }
         }
     }
     return (
         <>
             <h3>Diary Entries</h3>
+            <h2 style={{backgroundColor: 'red', color: 'white'}}>{error}</h2>
             <div>
                 <form onSubmit={addNewEntry}>
                     <input
