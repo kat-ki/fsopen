@@ -6,7 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="69794134-c9bc-43ed-9fa1-90f3c54df0cd" name="Changes" comment="9.14: used Zod to validate the requests to the POST /api/patients">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/data/patients.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/data/patients.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/routes/patients.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes/patients.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/services/patientsService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/services/patientsService.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/utils.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +38,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/ekra/WebstormProjects/fsopen/part9/other-9.15",
+    "last_opened_file_path": "C:/Users/ekra/WebstormProjects/fsopen/part9/patientor",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -75,6 +80,7 @@
       <workItem from="1729585980483" duration="240000" />
       <workItem from="1729589570432" duration="5669000" />
       <workItem from="1729769139588" duration="106000" />
+      <workItem from="1730193726452" duration="4296000" />
     </task>
     <task id="LOCAL-00001" summary="add patientor">
       <option name="closed" value="true" />

@@ -6,7 +6,8 @@ export const NewPatientEntrySchema = z.object({
     dateOfBirth: z.string(),
     ssn: z.string(),
     gender: z.nativeEnum(Gender),
-    occupation: z.string()
+    occupation: z.string(),
+    entries: z.array(z.object({})).optional()
 });
 
 export const parseNewEntry = (req: Request, _res: Response, next: NextFunction) => {

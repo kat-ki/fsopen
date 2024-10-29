@@ -6,11 +6,27 @@ import {NewPatientEntry, Patient} from "../types";
 const router = express.Router();
 
 router.get('/', (_req, res) => {
-    res.send(patientsService.getPatientsExcludingSSN());
+    const patients = patientsService.getPatientsExcludingSSN();
+    res.send(patients);
 });
 
-router.post('/', parseNewEntry, (req: Request<unknown, unknown, NewPatientEntry>, res: Response<Patient>) => {
-    const addedPatient = patientsService.addPatient(req.body);
+router.get('/:id', async (req: Request, res: Response<Patient | { message: string }>) => {
+    const {id} = req.params;
+    try {
+        const patientFound = await patientsService.getPatientById(id);
+        if (!patientFound) {
+            res.status(404).send({message: 'Patient not found'});
+        } else {
+            res.send(patientFound);
+        }
+    } catch (error) {
+        res.status(500).send({message: 'Internal server error'});
+
+    }
+})
+
+router.post('/', parseNewEntry, async (req: Request<unknown, unknown, NewPatientEntry>, res: Response<Patient>) => {
+    const addedPatient = await patientsService.addPatient(req.body);
     res.json(addedPatient);
 });
 

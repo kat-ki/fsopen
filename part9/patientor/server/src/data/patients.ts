@@ -17,7 +17,8 @@ const data = [
         "dateOfBirth": "1979-01-30",
         "ssn": "300179-77A",
         "gender": "male",
-        "occupation": "Cop"
+        "occupation": "Cop",
+        "entries": []
     },
     {
         "id": "d27736ec-f723-11e9-8f0b-362b9e155667",
