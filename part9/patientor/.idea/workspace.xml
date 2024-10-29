@@ -4,14 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="69794134-c9bc-43ed-9fa1-90f3c54df0cd" name="Changes" comment="9.14: used Zod to validate the requests to the POST /api/patients">
+    <list default="true" id="69794134-c9bc-43ed-9fa1-90f3c54df0cd" name="Changes" comment="9.21: add endpoint /api/patients/:id to find a patient by id">
+      <change afterPath="$PROJECT_DIR$/client/src/components/PatientDetails/PatientDetails.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/data/patients.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/data/patients.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/routes/patients.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes/patients.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/services/patientsService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/services/patientsService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/utils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client" beforeDir="false" afterPath="$PROJECT_DIR$/client" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/PatientListPage/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/PatientListPage/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/services/patients.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/services/patients.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/types.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,7 +19,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/client" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -80,7 +80,7 @@
       <workItem from="1729585980483" duration="240000" />
       <workItem from="1729589570432" duration="5669000" />
       <workItem from="1729769139588" duration="106000" />
-      <workItem from="1730193726452" duration="4296000" />
+      <workItem from="1730193726452" duration="8795000" />
     </task>
     <task id="LOCAL-00001" summary="add patientor">
       <option name="closed" value="true" />
@@ -130,7 +130,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729603952349</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="9.21: add endpoint /api/patients/:id to find a patient by id">
+      <option name="closed" value="true" />
+      <created>1730198659371</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1730198659371</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -154,6 +162,7 @@
     <MESSAGE value="9.12: add post /api/patients" />
     <MESSAGE value="9.13: set up safe parsing, validation and type predicate to the POST /api/patients request; refactor the gender field to use an enum type." />
     <MESSAGE value="9.14: used Zod to validate the requests to the POST /api/patients" />
-    <option name="LAST_COMMIT_MESSAGE" value="9.14: used Zod to validate the requests to the POST /api/patients" />
+    <MESSAGE value="9.21: add endpoint /api/patients/:id to find a patient by id" />
+    <option name="LAST_COMMIT_MESSAGE" value="9.21: add endpoint /api/patients/:id to find a patient by id" />
   </component>
 </project>
