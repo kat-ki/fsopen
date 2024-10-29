@@ -4,14 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="69794134-c9bc-43ed-9fa1-90f3c54df0cd" name="Changes" comment="9.21: add endpoint /api/patients/:id to find a patient by id">
-      <change afterPath="$PROJECT_DIR$/client/src/components/PatientDetails/PatientDetails.tsx" afterDir="false" />
+    <list default="true" id="69794134-c9bc-43ed-9fa1-90f3c54df0cd" name="Changes" comment="9.22: add PatientDetails.tsx to display a single patient data">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client" beforeDir="false" afterPath="$PROJECT_DIR$/client" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/PatientListPage/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/PatientListPage/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/services/patients.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/services/patients.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/PatientDetails/PatientDetails.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/PatientDetails/PatientDetails.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +77,7 @@
       <workItem from="1729585980483" duration="240000" />
       <workItem from="1729589570432" duration="5669000" />
       <workItem from="1729769139588" duration="106000" />
-      <workItem from="1730193726452" duration="8795000" />
+      <workItem from="1730193726452" duration="9181000" />
     </task>
     <task id="LOCAL-00001" summary="add patientor">
       <option name="closed" value="true" />
@@ -138,7 +135,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730198659371</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="9.22: add PatientDetails.tsx to display a single patient data">
+      <option name="closed" value="true" />
+      <created>1730203029800</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1730203029800</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -163,6 +168,7 @@
     <MESSAGE value="9.13: set up safe parsing, validation and type predicate to the POST /api/patients request; refactor the gender field to use an enum type." />
     <MESSAGE value="9.14: used Zod to validate the requests to the POST /api/patients" />
     <MESSAGE value="9.21: add endpoint /api/patients/:id to find a patient by id" />
-    <option name="LAST_COMMIT_MESSAGE" value="9.21: add endpoint /api/patients/:id to find a patient by id" />
+    <MESSAGE value="9.22: add PatientDetails.tsx to display a single patient data" />
+    <option name="LAST_COMMIT_MESSAGE" value="9.22: add PatientDetails.tsx to display a single patient data" />
   </component>
 </project>
