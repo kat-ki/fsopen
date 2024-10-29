@@ -1,14 +1,8 @@
 import {Request, Response, NextFunction} from "express";
-import {Gender, NewPatientEntry} from "./types";
+import {NewPatientEntry} from "./types";
 import {z} from "zod";
-export const NewPatientEntrySchema = z.object({
-    name: z.string(),
-    dateOfBirth: z.string(),
-    ssn: z.string(),
-    gender: z.nativeEnum(Gender),
-    occupation: z.string(),
-    entries: z.array(z.object({})).optional()
-});
+import {NewPatientEntrySchema} from "./schemas";
+
 
 export const parseNewEntry = (req: Request, _res: Response, next: NextFunction) => {
     try {

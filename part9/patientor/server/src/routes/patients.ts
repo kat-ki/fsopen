@@ -6,7 +6,7 @@ import {NewPatientEntry, Patient} from "../types";
 const router = express.Router();
 
 router.get('/', (_req, res) => {
-    const patients = patientsService.getPatientsExcludingSSN();
+    const patients = patientsService.getPatients();
     res.send(patients);
 });
 
