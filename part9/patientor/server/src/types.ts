@@ -1,5 +1,5 @@
 import {z} from 'zod';
-import {NewPatientEntrySchema} from "./utils";
+import {NewPatientEntrySchema} from "./schemas";
 
 export enum Gender {
     Female = 'female',
@@ -36,7 +36,6 @@ export interface BaseEntry {
     description: string,
     specialist: string,
     diagnosisCodes?: Array<Diagnosis['code']>
-
 }
 
 export enum HealthCheckRating {
