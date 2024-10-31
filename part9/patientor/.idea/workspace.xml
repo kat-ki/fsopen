@@ -4,14 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="69794134-c9bc-43ed-9fa1-90f3c54df0cd" name="Changes" comment="9.25: fetched from /api/diagnoses and added diagnoses to displayed codes">
-      <change afterPath="$PROJECT_DIR$/client/src/components/PatientDetails/entriesByType/EntryDetails.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/PatientDetails/entriesByType/HealthCheckEntryInfo.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/PatientDetails/entriesByType/HospitalEntryInfo.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/PatientDetails/entriesByType/OccupationalEntryInfo.tsx" afterDir="false" />
+    <list default="true" id="69794134-c9bc-43ed-9fa1-90f3c54df0cd" name="Changes" comment="9.26: add entry type based components">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/PatientDetails/PatientDetails.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/PatientDetails/PatientDetails.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client" beforeDir="false" afterPath="$PROJECT_DIR$/client" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/PatientDetails/entriesByType/EntryDetails.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/PatientDetails/entriesByType/EntryDetails.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/PatientDetails/entriesByType/HealthCheckEntryInfo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/PatientDetails/entriesByType/HealthCheckEntryInfo.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +86,7 @@
       <workItem from="1730292224134" duration="4903000" />
       <workItem from="1730301749780" duration="257000" />
       <workItem from="1730378341889" duration="407000" />
-      <workItem from="1730378818241" duration="7393000" />
+      <workItem from="1730378818241" duration="8850000" />
     </task>
     <task id="LOCAL-00001" summary="add patientor">
       <option name="closed" value="true" />
@@ -187,7 +184,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730296141222</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="9.26: add entry type based components">
+      <option name="closed" value="true" />
+      <created>1730386371450</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1730386371450</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -217,6 +222,7 @@
     <MESSAGE value="9.23: defined OccupationalHealthcareEntry and HospitalEntry types" />
     <MESSAGE value="9.24: extended patient page in client to display date, description and diagnoseCodes of the patient's entries" />
     <MESSAGE value="9.25: fetched from /api/diagnoses and added diagnoses to displayed codes" />
-    <option name="LAST_COMMIT_MESSAGE" value="9.25: fetched from /api/diagnoses and added diagnoses to displayed codes" />
+    <MESSAGE value="9.26: add entry type based components" />
+    <option name="LAST_COMMIT_MESSAGE" value="9.26: add entry type based components" />
   </component>
 </project>
