@@ -4,11 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="69794134-c9bc-43ed-9fa1-90f3c54df0cd" name="Changes" comment="9.24: extended patient page in client to display date, description and diagnoseCodes of the patient's entries">
-      <change afterPath="$PROJECT_DIR$/client/src/services/diagnoses.ts" afterDir="false" />
+    <list default="true" id="69794134-c9bc-43ed-9fa1-90f3c54df0cd" name="Changes" comment="9.25: fetched from /api/diagnoses and added diagnoses to displayed codes">
+      <change afterPath="$PROJECT_DIR$/client/src/components/PatientDetails/entriesByType/EntryDetails.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/PatientDetails/entriesByType/HealthCheckEntryInfo.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/PatientDetails/entriesByType/HospitalEntryInfo.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/PatientDetails/entriesByType/OccupationalEntryInfo.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/PatientDetails/PatientDetails.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/PatientDetails/PatientDetails.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/data/diagnoses.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/data/diagnoses.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/types.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,21 +33,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/ekra/WebstormProjects/fsopen/part9/patientor&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\ekra\\WebstormProjects\\fsopen\\part9\\patientor\\server\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/ekra/WebstormProjects/fsopen/part9/patientor",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "C:\\Users\\ekra\\WebstormProjects\\fsopen\\part9\\patientor\\server\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ekra\WebstormProjects\fsopen\part9\patientor\client\src\components\PatientDetails\entriesByType" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/client/package.json" />
@@ -78,7 +86,10 @@
       <workItem from="1729589570432" duration="5669000" />
       <workItem from="1729769139588" duration="106000" />
       <workItem from="1730193726452" duration="13830000" />
-      <workItem from="1730292224134" duration="3616000" />
+      <workItem from="1730292224134" duration="4903000" />
+      <workItem from="1730301749780" duration="257000" />
+      <workItem from="1730378341889" duration="407000" />
+      <workItem from="1730378818241" duration="7393000" />
     </task>
     <task id="LOCAL-00001" summary="add patientor">
       <option name="closed" value="true" />
@@ -168,7 +179,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730294589183</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="9.25: fetched from /api/diagnoses and added diagnoses to displayed codes">
+      <option name="closed" value="true" />
+      <created>1730296141222</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1730296141222</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -197,6 +216,7 @@
     <MESSAGE value="9.22: fix PatientDetails.tsx to display a single patient data" />
     <MESSAGE value="9.23: defined OccupationalHealthcareEntry and HospitalEntry types" />
     <MESSAGE value="9.24: extended patient page in client to display date, description and diagnoseCodes of the patient's entries" />
-    <option name="LAST_COMMIT_MESSAGE" value="9.24: extended patient page in client to display date, description and diagnoseCodes of the patient's entries" />
+    <MESSAGE value="9.25: fetched from /api/diagnoses and added diagnoses to displayed codes" />
+    <option name="LAST_COMMIT_MESSAGE" value="9.25: fetched from /api/diagnoses and added diagnoses to displayed codes" />
   </component>
 </project>
