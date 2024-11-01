@@ -1,5 +1,5 @@
 import patients from '../data/patients';
-import {NewPatientEntry, Patient, NonSensitivePatient} from "../types";
+import {NewPatientEntry, Patient, NonSensitivePatient, EntryWithoutId, Entry} from "../types";
 import {v1 as uuid} from 'uuid'
 
 const getPatients = (): Patient[] => {
@@ -32,4 +32,19 @@ const addPatient = (entry: NewPatientEntry): Patient => {
     return newPatientEntry;
 }
 
-export default {getPatients, getPatientsExcludingSSN, addPatient, getPatientById}
+const addMedicalEntry = (patientId: string, medEntry: EntryWithoutId): Entry => {
+    const newMedicalEntry = {
+        id: uuid(),
+        ...medEntry
+    } as Entry; // type assertion ok??
+
+    const patient = patients.find(p => p.id === patientId);
+    if (!patient) {
+        throw new Error('Patient not found');
+    }
+
+    patient.entries?.push(newMedicalEntry);
+    return newMedicalEntry;
+}
+
+export default {getPatients, getPatientsExcludingSSN, addPatient, getPatientById, addMedicalEntry}

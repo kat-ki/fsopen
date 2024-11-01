@@ -4,11 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="69794134-c9bc-43ed-9fa1-90f3c54df0cd" name="Changes" comment="9.26: add entry type based components">
+    <list default="true" id="69794134-c9bc-43ed-9fa1-90f3c54df0cd" name="Changes" comment="9.26: add health rating icons">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client" beforeDir="false" afterPath="$PROJECT_DIR$/client" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/PatientDetails/entriesByType/EntryDetails.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/PatientDetails/entriesByType/EntryDetails.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/PatientDetails/entriesByType/HealthCheckEntryInfo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/PatientDetails/entriesByType/HealthCheckEntryInfo.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/routes/patients.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes/patients.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/services/patientsService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/services/patientsService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/utils.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,7 +19,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/client" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -30,21 +33,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/ekra/WebstormProjects/fsopen/part9/patientor",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "C:\\Users\\ekra\\WebstormProjects\\fsopen\\part9\\patientor\\server\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/ekra/WebstormProjects/fsopen/part9/patientor&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\ekra\\WebstormProjects\\fsopen\\part9\\patientor\\server\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\ekra\WebstormProjects\fsopen\part9\patientor\client\src\components\PatientDetails\entriesByType" />
@@ -86,7 +89,8 @@
       <workItem from="1730292224134" duration="4903000" />
       <workItem from="1730301749780" duration="257000" />
       <workItem from="1730378341889" duration="407000" />
-      <workItem from="1730378818241" duration="8850000" />
+      <workItem from="1730378818241" duration="8977000" />
+      <workItem from="1730471239578" duration="3901000" />
     </task>
     <task id="LOCAL-00001" summary="add patientor">
       <option name="closed" value="true" />
@@ -192,7 +196,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730386371450</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="9.26: add health rating icons">
+      <option name="closed" value="true" />
+      <created>1730387782425</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1730387782425</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -223,6 +235,7 @@
     <MESSAGE value="9.24: extended patient page in client to display date, description and diagnoseCodes of the patient's entries" />
     <MESSAGE value="9.25: fetched from /api/diagnoses and added diagnoses to displayed codes" />
     <MESSAGE value="9.26: add entry type based components" />
-    <option name="LAST_COMMIT_MESSAGE" value="9.26: add entry type based components" />
+    <MESSAGE value="9.26: add health rating icons" />
+    <option name="LAST_COMMIT_MESSAGE" value="9.26: add health rating icons" />
   </component>
 </project>
