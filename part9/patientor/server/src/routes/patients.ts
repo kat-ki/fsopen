@@ -27,7 +27,7 @@ router.get('/:id', async (req: Request, res: Response<Patient | { message: strin
 
     }
 })
-router.post('/:id/entries', async (req: Request<{ id: string }, unknown, EntryWithoutId>, res: Response<Entry>) => {
+router.post('/:id/entries', async (req: Request<{ id: string }, unknown, EntryWithoutId>, res: Response<Entry | string>) => {
     const {id} = req.params;
     const entryData = req.body;
     entryData.diagnosisCodes = parseDiagnosisCodes(req.body);
@@ -35,12 +35,11 @@ router.post('/:id/entries', async (req: Request<{ id: string }, unknown, EntryWi
         const newEntry = await patientsService.addMedicalEntry(id, entryData);
         res.json(newEntry);
     } catch (error: unknown) {
-        console.log('failed to add new medical entry. line 38 router')
-        /* let errorMessage = 'Something went wrong.';
+         let errorMessage = 'Something went wrong.';
          if (error instanceof Error) {
              errorMessage += ' Error: ' + error.message;
          }
-         res.status(400).send(errorMessage);*/
+         res.status(400).send(errorMessage);
     }
 });
 
