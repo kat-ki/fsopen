@@ -36,13 +36,12 @@ const addMedicalEntry = (patientId: string, medEntry: EntryWithoutId): Entry => 
     const newMedicalEntry = {
         id: uuid(),
         ...medEntry
-    } as Entry; // type assertion ok??
+    } as Entry;
 
     const patient = patients.find(p => p.id === patientId);
     if (!patient) {
         throw new Error('Patient not found');
     }
-
     patient.entries?.push(newMedicalEntry);
     return newMedicalEntry;
 }
