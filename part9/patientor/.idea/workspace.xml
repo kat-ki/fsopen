@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="69794134-c9bc-43ed-9fa1-90f3c54df0cd" name="Changes" comment="fix: add entries array to post new patient request">
-      <change afterPath="$PROJECT_DIR$/client/src/components/AddEntryModal/EntryForm.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/custom-hooks/useForm.tsx" afterDir="false" />
+    <list default="true" id="69794134-c9bc-43ed-9fa1-90f3c54df0cd" name="Changes" comment="add form fields validation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client" beforeDir="false" afterPath="$PROJECT_DIR$/client" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/AddEntryModal/AddEntryForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/AddEntryModal/AddEntryForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/routes/patients.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes/patients.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/AddEntryModal/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/AddEntryModal/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/PatientDetails/PatientDetails.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/PatientDetails/PatientDetails.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +91,7 @@
       <workItem from="1730471239578" duration="5790000" />
       <workItem from="1730712731269" duration="12927000" />
       <workItem from="1730797681329" duration="14633000" />
-      <workItem from="1730886327333" duration="8649000" />
+      <workItem from="1730886327333" duration="12936000" />
     </task>
     <task id="LOCAL-00001" summary="add patientor">
       <option name="closed" value="true" />
@@ -269,7 +269,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730887387675</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="add form fields validation">
+      <option name="closed" value="true" />
+      <created>1730895519016</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1730895519016</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -308,6 +316,7 @@
     <MESSAGE value="9.28, 9.29: added forms for every entry type" />
     <MESSAGE value="added diagnosis description to diagnosis codes" />
     <MESSAGE value="fix: add entries array to post new patient request" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: add entries array to post new patient request" />
+    <MESSAGE value="add form fields validation" />
+    <option name="LAST_COMMIT_MESSAGE" value="add form fields validation" />
   </component>
 </project>
