@@ -30,7 +30,6 @@ router.get('/:id', async (req: Request, res: Response<Patient | { message: strin
 router.post('/:id/entries', async (req: Request<{ id: string }, unknown, EntryWithoutId>, res: Response<Entry | string>) => {
     const {id} = req.params;
     const entryData = req.body;
-    console.log(id, entryData)
     entryData.diagnosisCodes = parseDiagnosisCodes(req.body);
     try {
         const newEntry = await patientsService.addMedicalEntry(id, entryData);
