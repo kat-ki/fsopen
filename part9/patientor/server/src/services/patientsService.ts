@@ -24,9 +24,11 @@ const getPatientById = (id: string): Patient | undefined => {
 };
 
 const addPatient = (entry: NewPatientEntry): Patient => {
+    console.log('add patient entry', entry)
     const newPatientEntry = {
         id: uuid(),
-        ...entry
+        ...entry,
+        entries: []
     };
     patients.push(newPatientEntry);
     return newPatientEntry;
