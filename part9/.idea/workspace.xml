@@ -5,11 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f1923d0a-264e-40fc-8f2f-df47409746ed" name="Changes" comment="9.11: add get /api/patients endpoint, fetched data excluding a specific data type">
+      <change afterPath="$PROJECT_DIR$/patientor/client" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ilaris-flight-diaries/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ilaris-flight-diaries/src/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ilaris-flight-diaries/src/routes/diaries.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ilaris-flight-diaries/src/routes/diaries.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ilaris-flight-diaries/src/services/diaryService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ilaris-flight-diaries/src/services/diaryService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ilaris-flight-diaries/src/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ilaris-flight-diaries/src/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/patientor/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/patientor/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/patientor/client/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/patientor/client/src/App.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,7 +22,7 @@
         <entry key="$PROJECT_DIR$/.." value="feat-part-7" />
       </map>
     </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/patientor/client" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -41,7 +41,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/ekra/WebstormProjects/sushi-shop",
+    "last_opened_file_path": "C:/Users/ekra/WebstormProjects/fsopen/part9",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
     "node.js.detected.package.tslint": "true",
@@ -115,6 +115,8 @@
       <workItem from="1728987637426" duration="4821000" />
       <workItem from="1729003580129" duration="23000" />
       <workItem from="1729158866509" duration="50000" />
+      <workItem from="1730995438874" duration="2189000" />
+      <workItem from="1730999844599" duration="247000" />
     </task>
     <task id="LOCAL-00001" summary="9.1: bmi calculator">
       <option name="closed" value="true" />
