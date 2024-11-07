@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f1923d0a-264e-40fc-8f2f-df47409746ed" name="Changes" comment="fix">
-      <change afterPath="$PROJECT_DIR$/patientor/client" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/patientor/client/part9/patientor/client" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="f1923d0a-264e-40fc-8f2f-df47409746ed" name="Changes" comment="fix" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,6 +18,20 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/patientor/client" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "kat-ki"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="118c517f-3bcc-47f7-93e6-4d945be96c2d" />
+        <option name="url" value="https://github.com/kat-ki/fsopen" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -114,7 +124,7 @@
       <workItem from="1729003580129" duration="23000" />
       <workItem from="1729158866509" duration="50000" />
       <workItem from="1730995438874" duration="2189000" />
-      <workItem from="1730999844599" duration="1285000" />
+      <workItem from="1730999844599" duration="1607000" />
     </task>
     <task id="LOCAL-00001" summary="9.1: bmi calculator">
       <option name="closed" value="true" />
@@ -236,7 +246,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731000136130</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="fix">
+      <option name="closed" value="true" />
+      <created>1731001214121</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1731001214121</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -247,7 +265,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
