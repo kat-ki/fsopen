@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f1923d0a-264e-40fc-8f2f-df47409746ed" name="Changes" comment="9.11: add get /api/patients endpoint, fetched data excluding a specific data type">
+    <list default="true" id="f1923d0a-264e-40fc-8f2f-df47409746ed" name="Changes" comment="fix">
       <change afterPath="$PROJECT_DIR$/patientor/client" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patientor/client/part9/patientor/client" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patientor/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/patientor/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patientor/client/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/patientor/client/src/App.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +114,7 @@
       <workItem from="1729003580129" duration="23000" />
       <workItem from="1729158866509" duration="50000" />
       <workItem from="1730995438874" duration="2189000" />
-      <workItem from="1730999844599" duration="247000" />
+      <workItem from="1730999844599" duration="1285000" />
     </task>
     <task id="LOCAL-00001" summary="9.1: bmi calculator">
       <option name="closed" value="true" />
@@ -230,7 +228,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728989310828</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="fix">
+      <option name="closed" value="true" />
+      <created>1731000136130</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1731000136130</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -259,6 +265,7 @@
     <MESSAGE value="add gitignore" />
     <MESSAGE value="9.10: add get /api/diagnoses endpoint, fetched data" />
     <MESSAGE value="9.11: add get /api/patients endpoint, fetched data excluding a specific data type" />
-    <option name="LAST_COMMIT_MESSAGE" value="9.11: add get /api/patients endpoint, fetched data excluding a specific data type" />
+    <MESSAGE value="fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix" />
   </component>
 </project>
