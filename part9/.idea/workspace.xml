@@ -4,7 +4,61 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f1923d0a-264e-40fc-8f2f-df47409746ed" name="Changes" comment="fix" />
+    <list default="true" id="f1923d0a-264e-40fc-8f2f-df47409746ed" name="Changes" comment="fix">
+      <change afterPath="$PROJECT_DIR$/patientor-client/.eslintignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patientor-client/.eslintrc.cjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patientor-client/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patientor-client/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patientor-client/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patientor-client/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patientor-client/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patientor-client/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patientor-client/tsconfig.node.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patientor-client/vite.config.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patientor-server/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patientor-server/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patientor-server/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patientor-server/.idea/patientor.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patientor-server/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patientor-server/build/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patientor-server/eslint.config.mjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patientor-server/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patientor-server/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patientor-server/src/data/diagnoses.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patientor-server/src/data/patients.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patientor-server/src/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patientor-server/src/routes/diagnoses.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patientor-server/src/routes/patients.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patientor-server/src/schemas.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patientor-server/src/services/diagnosesService.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patientor-server/src/services/patientsService.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patientor-server/src/types.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patientor-server/src/utils.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patientor-server/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/patientor/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/patientor/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/patientor/.idea/patientor.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/patientor/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/patientor/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/patientor/client" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/patientor/server/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/patientor/server/build/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/patientor/server/eslint.config.mjs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/patientor/server/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/patientor/server/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/patientor/server/src/data/diagnoses.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/patientor/server/src/data/patients.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/patientor/server/src/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/patientor/server/src/routes/diagnoses.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/patientor/server/src/routes/patients.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/patientor/server/src/schemas.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/patientor/server/src/services/diagnosesService.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/patientor/server/src/services/patientsService.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/patientor/server/src/types.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/patientor/server/src/utils.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/patientor/server/tsconfig.json" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,15 +70,15 @@
         <entry key="$PROJECT_DIR$/.." value="feat-part-7" />
       </map>
     </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/patientor/client" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "kat-ki"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;kat-ki&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -58,7 +112,7 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "settings.typescriptcompiler",
-    "ts.external.directory.path": "C:\\Users\\ekra\\WebstormProjects\\fsopen\\part9\\patientor\\server\\node_modules\\typescript\\lib",
+    "ts.external.directory.path": "C:\\Users\\ekra\\WebstormProjects\\fsopen\\part9\\patientor-server\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -70,6 +124,8 @@
       <recent name="C:\Users\ekra\WebstormProjects\fsopen\part9\patientor\server" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ekra\WebstormProjects\fsopen\part9\patientor-server" />
+      <recent name="C:\Users\ekra\WebstormProjects\fsopen\part9\patientor-client" />
       <recent name="C:\Users\ekra\WebstormProjects\fsopen\part9\patientor\server\src" />
       <recent name="C:\Users\ekra\WebstormProjects\fsopen\part9\ilaris-flight-diaries\src" />
       <recent name="C:\Users\ekra\WebstormProjects\fsopen\part9\miscellaneous" />
@@ -124,7 +180,8 @@
       <workItem from="1729003580129" duration="23000" />
       <workItem from="1729158866509" duration="50000" />
       <workItem from="1730995438874" duration="2189000" />
-      <workItem from="1730999844599" duration="1607000" />
+      <workItem from="1730999844599" duration="1803000" />
+      <workItem from="1731068516650" duration="520000" />
     </task>
     <task id="LOCAL-00001" summary="9.1: bmi calculator">
       <option name="closed" value="true" />
@@ -254,7 +311,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731001214121</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="fix">
+      <option name="closed" value="true" />
+      <created>1731001633942</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1731001633942</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -271,7 +336,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/main" />
+                        <option value="main" />
                       </list>
                     </value>
                   </entry>
